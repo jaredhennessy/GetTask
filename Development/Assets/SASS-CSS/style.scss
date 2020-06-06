@@ -12,15 +12,15 @@
   height: $height;
 }
 .section {
+  background-color: white;
+  height: 200px;
+}
+.parallax {
   @include section(200px);
   padding: 0px;
   margin-bottom: 0px;
-  background: url(https://i.picsum.photos/id/181/1920/1189.jpg);
+  background: url(https://i.picsum.photos/id/20/3670/2462.jpg);
   background-attachment: fixed;
-}
-.parallax {
-  background: linear-gradient(45deg, black, transparent);
-  height: 200px;
 }
 .parallax-container {
   height: 100px;
