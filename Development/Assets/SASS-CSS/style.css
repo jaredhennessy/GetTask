@@ -1,4 +1,22 @@
-/* html and container prop.  */
+/*Background settings */
+.section {
+  height: 200px;
+  padding: 0px;
+  margin-bottom: 0px;
+  background: url(https://i.picsum.photos/id/181/1920/1189.jpg);
+  background-attachment: fixed;
+}
+
+.parallax {
+  background: linear-gradient(45deg, black, transparent);
+  height: 200px;
+}
+
+.parallax-container {
+  height: 100px;
+}
+
+/* html and container properties  */
 html {
   background: linear-gradient(45deg, black, transparent);
   background-repeat: no-repeat;
@@ -24,6 +42,8 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  height: 700px;
 }
 
 nav {

@@ -1,12 +1,31 @@
+/*Background settings */
 @mixin background($imgpath, $position: 0 0, $repeat: no-repeat) {
   background: {
     image: url($imgpath);
     position: $position;
     repeat: $repeat;
     size: cover;
+    attachment: fixed;
   }
 }
-/* html and container prop.  */
+@mixin section($height) {
+  height: $height;
+}
+.section {
+  @include section(200px);
+  padding: 0px;
+  margin-bottom: 0px;
+  background: url(https://i.picsum.photos/id/181/1920/1189.jpg);
+  background-attachment: fixed;
+}
+.parallax {
+  background: linear-gradient(45deg, black, transparent);
+  height: 200px;
+}
+.parallax-container {
+  height: 100px;
+}
+/* html and container properties  */
 html {
   background: linear-gradient(45deg, black, transparent);
   background-repeat: no-repeat;
@@ -26,6 +45,7 @@ html {
 /* Landing Div - NavBar */
 #landing-div {
   @include background("../Images/180-2400x1600.jpg", center);
+  height: 700px;
 }
 
 nav {
