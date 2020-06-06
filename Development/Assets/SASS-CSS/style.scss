@@ -1,0 +1,29 @@
+@mixin background($imgpath, $position: 0 0, $repeat: no-repeat) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+    size: cover;
+  }
+}
+
+html {
+  background: linear-gradient(45deg, black, transparent);
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: initial;
+}
+.container > .row {
+  margin: 0;
+}
+.container > .row > .col {
+  padding: 0;
+}
+
+div {
+  @include background("../Images/images.jpg", center);
+}
