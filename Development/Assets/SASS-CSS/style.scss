@@ -6,7 +6,7 @@
     size: cover;
   }
 }
-
+/* html and container prop.  */
 html {
   background: linear-gradient(45deg, black, transparent);
   background-repeat: no-repeat;
@@ -23,7 +23,11 @@ html {
 .container > .row > .col {
   padding: 0;
 }
+/* Landing Div - NavBar */
+#landing-div {
+  @include background("../Images/180-2400x1600.jpg", center);
+}
 
-div {
-  @include background("../Images/images.jpg", center);
+nav {
+  background: none !important;
 }

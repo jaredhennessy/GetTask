@@ -1,3 +1,4 @@
+/* html and container prop.  */
 html {
   background: linear-gradient(45deg, black, transparent);
   background-repeat: no-repeat;
@@ -17,10 +18,15 @@ html {
   padding: 0;
 }
 
-div {
-  background-image: url("../Images/images.jpg");
+/* Landing Div - NavBar */
+#landing-div {
+  background-image: url("../Images/180-2400x1600.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+nav {
+  background: none !important;
 }
 /*# sourceMappingURL=style.css.map */
