@@ -1,28 +1,23 @@
 /*Background settings */
 .section {
   background-color: white;
-  height: 200px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 50px;
 }
 
 .parallax {
-  height: 200px;
   padding: 0px;
   margin-bottom: 0px;
-  background: url(https://i.picsum.photos/id/20/3670/2462.jpg);
+  background: url(../Images/coffee.jpg);
   background-attachment: fixed;
 }
 
 .parallax-container {
-  height: 100px;
+  height: 250px;
 }
 
-/* html and container properties  */
-html {
-  background: linear-gradient(45deg, black, transparent);
-  background-repeat: no-repeat;
-  height: 100%;
-}
-
+/* container properties  */
 .container {
   width: 100%;
   max-width: initial;
@@ -34,11 +29,18 @@ html {
 
 .container > .row > .col {
   padding: 0;
+  padding-top: 50px;
+}
+
+.col,
+.s12 {
+  padding-top: 50px !important;
+  height: 100%;
 }
 
 /* Landing Div - NavBar */
 #landing-div {
-  background-image: url("../Images/180-2400x1600.jpg");
+  background-image: url("../Images/1067-2000x1000.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,5 +50,20 @@ html {
 
 nav {
   background: none !important;
+}
+
+/*Icons And font*/
+.fas {
+  font-size: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon-header {
+  text-align: center;
+}
+
+p {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
