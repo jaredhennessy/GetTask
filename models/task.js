@@ -4,33 +4,33 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 140],
-      },
+        len: [1, 140]
+      }
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     },
     complete: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
+      defaultValue: false
+    }
   });
 
   Task.associate = function(models) {
     Task.belongsTo(models.User, {
       as: "creator",
-      foreignKey: "creatorId",
+      foreignKey: "creatorId"
     });
   };
 
   Task.associate = function(models) {
     Task.belongsTo(models.User, {
       as: "assignee",
-      foreignKey: "assigneeId",
+      foreignKey: "assigneeId"
     });
   };
   return Task;
