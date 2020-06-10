@@ -28,16 +28,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  db.Subscription.belongsTo(db.User, {
-    as: 'creator',
-    foreignKey: 'creatorId'
-  });
-  
-  db.Subscription.belongsTo(db.User, {
-    as: 'subscriber',
-    foreignKey: 'subscriberId'
-  });
-
   Task.associate = function(models) {
     Task.belongsTo(models.User, {
       as: "creator",
