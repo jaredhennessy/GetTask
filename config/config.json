@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "!Asleep_Once_Lake_Orbit!",
-    "database": "passport_demo",
+    "database": "task_tracker",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
