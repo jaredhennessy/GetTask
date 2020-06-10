@@ -20,7 +20,7 @@ app.use(
   session({
     secret: "keyboard cat",
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: true
   })
 );
 app.use(passport.initialize());
@@ -29,7 +29,7 @@ app.use(passport.session());
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main",
+    defaultLayout: "main"
   })
 );
 app.set("view engine", "handlebars");
