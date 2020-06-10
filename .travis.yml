@@ -9,4 +9,4 @@ cache:
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS task-tracker;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS task_tracker;'
