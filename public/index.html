@@ -1,97 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--Style and fonts links-->
-  <!--Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
-  <!--Font Awesome-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-  <!--Materialize Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <!--Custom SASS/CSS-->
-  <link rel="stylesheet" href="./assets/SASS-CSS/style.css" />
-  <title>Document</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-
 <body>
-  <!--Landing and NavBar-->
-  <div id="landing-div" class="container">
-    <!--------------NavBar------------------->
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Sass</a></li>
-          <li><a href="#">Components</a></li>
-          <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!--Landing content-->
-    <div class="row">
-      <h1>Hello project-2</h1>
-    </div>
-  </div>
-  <!--Section #1-->
-  <div class="row section">
-    <div class="col s12">
-      <div class="icon-header"><i class="fas fa-sitemap"></i></div>
-      <div>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!--Banner #1-->
-  <div class="parallax-container">
-    <div class="parallax"></div>
-  </div>
-  <!--Section #2-->
-  <div class="row section">
-    <div class="col s12">
-      <div class="icon-header"><i class="fas fa-tools"></i></div>
-      <div>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!--Banner #2-->
-  <div class="parallax-container">
-    <div class="parallax"></div>
-  </div>
-  <!--Section #3-->
-  <div class="row section">
-    <div class="col s12">
-      <div class="icon-header"><i class="fas fa-sitemap"></i></div>
-      <div>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="footer">
-      <p>© 2020 Copyright</p>
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-    </div>
-  </div>
-  <!--Materialize Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <!--Jquery CDN from google-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">GetTask</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Sign Up</a></li>
+      </ul>
 
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Sign Up</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">GetTask</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A modern project management system for the open source developer</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign In</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/img/background1.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Task Management</h5>
+
+            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Invite Your Team</h5>
+
+            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Get Competitive</h5>
+
+            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Words could be here if we want</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/img/background3.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Group Four - Project 2</h5>
+          <p class="grey-text text-lighten-4">We are a team of bootcamp students at the University of Washington. We hope you enjoy our task management app, please feel free to view each team member's personal portfolio to the right.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Team Members</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Alyssa's portfolio</a></li>
+            <li><a class="white-text" href="#!">Daniel's portfolio</a></li>
+            <li><a class="white-text" href="#!">Jared's portfolio</a></li>
+            <li><a class="white-text" href="#!">Tyler's portfolio</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made in <a class="green-text text-lighten-3">Washington</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/js/materialize.js"></script>
+  <script src="assets/js/init.js"></script>
+
+  </body>
 </html>
