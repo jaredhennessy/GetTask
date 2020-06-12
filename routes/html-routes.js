@@ -1,29 +1,41 @@
-// Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
 
-// Requiring our custom middleware for checking if a user is logged in
+// Checks if user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
+    // Anybody can access this page.
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
+  app.get("/signup", (req, res) => {
+    //Anyone can access this page.
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
   app.get("/login", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user is already logged in, send them to the list page. If they are not logged in, let them go to the login page.
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/list");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+  //The following routes can only be accessed by authenticated users.
+  app.get("/list", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/list.html"));
+  });
+
+  app.get("/new", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/new.html"));
+  });
+
+  app.get("/task", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/task.html"));
+  });
+
+  app.get("/users", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/users.html"));
   });
 };
