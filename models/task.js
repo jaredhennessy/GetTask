@@ -23,8 +23,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    status: {
-      type: DataTypes.STRING,
+    assignedTo: {
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   });
