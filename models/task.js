@@ -22,10 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     estCompletion: {
       type: DataTypes.DATE,
       allowNull: true
-    },
-    assignedTo: {
-      type: DataTypes.INTEGER,
-      allowNull: true
     }
   });
 
@@ -34,13 +30,11 @@ module.exports = function(sequelize, DataTypes) {
       as: "creator",
       foreignKey: "creatorId"
     });
-  };
-
-  Task.associate = function(models) {
     Task.belongsTo(models.User, {
       as: "assignee",
       foreignKey: "assigneeId"
     });
   };
+
   return Task;
 };

@@ -42,6 +42,8 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Task, {
+      as: "creator",
+      foreignKey: "creatorId",
       onDelete: "cascade"
     });
   };
