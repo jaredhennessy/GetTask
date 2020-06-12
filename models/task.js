@@ -16,7 +16,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     complete: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
       defaultValue: false
+    },
+    estCompletion: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   });
 
