@@ -1,5 +1,3 @@
--- FIRST create a user through signup page with first name "Dev"! This user will be assigned these dummy tickets.
-
 DELETE FROM users WHERE firstName = 'Customer';
 DELETE FROM users WHERE firstName = 'Dev';
 INSERT users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Customer','User','jared.hennessy+cust@gmail.com','password1234',CURDATE(),CURDATE());
