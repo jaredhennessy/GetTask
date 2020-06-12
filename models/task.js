@@ -16,11 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     complete: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
       defaultValue: false
     },
-    claimed: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+    estCompletion: {
+      type: DataTypes.DATE,
+      allowNull: true
     },
     assignedTo: {
       type: DataTypes.INTEGER,
