@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Style and fonts links-->
+    <!--Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Sofia"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Materialize Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Custom SASS/CSS-->
+    <link
+      rel="stylesheet"
+      href="public/Assets/SASS-CSS/landingPage/style.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Landing and NavBar-->
+    <div id="landing-div" class="container">
+      <!--------------NavBar------------------->
+      <nav style="background: none;">
+        <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo">Logo</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="./public/createTask.html"
+                ><i class="material-icons left">create</i>New Task</a
+              >
+            </li>
+            <li>
+              <a href="./public/dashboard.html"
+                ><i class="material-icons left">dashboard</i>Dashboard</a
+              >
+            </li>
+          </ul>
+        </div>
+        <ul class="sidenav" id="mobile-demo">
+          <li>
+            <a href="./public/createTask.html"
+              ><i class="material-icons left">create</i>New Task</a
+            >
+          </li>
+          <li>
+            <a href="./public/dashboard.html"
+              ><i class="material-icons left">dashboard</i>Dashboard</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <!--Landing content-->
+      <div style="width: 350px; margin: auto; padding-top: 50px;" class="row wrapper">
+        <div class="card">
+          <div class="row">
+            <form class="col s12" style="padding-top: 0px !important;">
+              <!--input #1-->
+              <div class="row">
+                <div class="input-field col s10">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+                <!--input #2-->
+                <div class="row">
+                  <div class="input-field col s10">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+              <!--form buttons-->
+              <div class="row">
+                <div class="btn-wrapper">
+                  <button
+                    class="btn waves-effect waves-light"
+                    type="submit"
+                    name="action"
+                  >
+                    Save
+                    <i class="material-icons left">save</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <!--Section #1-->
+    <div class="row section">
+      <div class="col s4">
+        <div class="icon-header"><i class="fas fa-sitemap"></i></div>
+        <div>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="icon-header"><i class="fas fa-tools"></i></div>
+        <div>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="icon-header"><i class="fas fa-tools"></i></div>
+        <div>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--Banner #1-->
+    <div class="parallax-container">
+      <div class="parallax"></div>
+    </div>
+    <!--Banner #2-->
+    <!-- <div class="parallax-container">
+      <div class="parallax"></div>
+    </div> -->
+    <!--Footer-->
+    <div class="footer-copyright">
+      <div class="footer">
+        <p>© 2020 Copyright</p>
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+    <!--Materialize Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Jquery CDN from google-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="public/Assets/Javascript/Landing.js"></script>
+  </body>
+</html>

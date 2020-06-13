@@ -1,0 +1,15 @@
+.body-style {
+  background: linear-gradient(45deg, #554747d2, #b46262d2);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/*=============Input Field================*/
+#input-field {
+  padding-top: 50px;
+}
+
+#task-form {
+  padding-top: 50px;
+}
+/*# sourceMappingURL=dashboard.css.map */
