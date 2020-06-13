@@ -19,7 +19,7 @@
 .parallax {
   padding: 0px;
   margin-bottom: 0px;
-  background: url(../img/coffee.jpg);
+  background: url(../../Images/1067-2000x1000.jpg);
   background-attachment: fixed;
 }
 
@@ -34,11 +34,11 @@
   max-width: initial;
 }
 
-.container>.row {
+.container > .row {
   margin: 0;
 }
 
-.container>.row>.col {
+.container > .row > .col {
   padding: 0;
   padding-top: 50px;
 }
@@ -51,12 +51,8 @@
 
 /* Landing Div - NavBar */
 #landing-div {
-  @include background("../img/1067-2000x1000.jpg", center);
+  @include background("../../Images/0-5616x3744.jpg", center);
   height: 700px;
-}
-
-nav {
-  background: none !important;
 }
 
 /*Icons And font*/
