@@ -4,14 +4,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 140]
+        len: [1, 50]
       }
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1, 255]
       }
     },
     complete: {
@@ -27,11 +27,11 @@ module.exports = function(sequelize, DataTypes) {
 
   Task.associate = function(models) {
     Task.belongsTo(models.User, {
-      as: "creator",
+      as: "created",
       foreignKey: "creatorId"
     });
     Task.belongsTo(models.User, {
-      as: "assignee",
+      as: "assigned",
       foreignKey: "assigneeId"
     });
   };
