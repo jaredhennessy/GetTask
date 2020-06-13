@@ -27,11 +27,11 @@ module.exports = function(sequelize, DataTypes) {
 
   Task.associate = function(models) {
     Task.belongsTo(models.User, {
-      as: "creator",
+      as: "created",
       foreignKey: "creatorId"
     });
     Task.belongsTo(models.User, {
-      as: "assignee",
+      as: "assigned",
       foreignKey: "assigneeId"
     });
   };
