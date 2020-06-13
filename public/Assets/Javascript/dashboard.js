@@ -7,7 +7,13 @@ $(document).ready(() => {
       dataType: "jsonp",
       success: function(location) {
         console.log(location);
-      }
+      },
     });
   }
+});
+//=================SideNav trigger=================//
+document.addEventListener("DOMContentLoaded", () => {
+  const elems = document.querySelectorAll(".sidenav");
+  const instances = M.Sidenav.init(elems);
+  console.log(instances);
 });

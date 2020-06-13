@@ -17,7 +17,7 @@
 .parallax {
   padding: 0px;
   margin-bottom: 0px;
-  background: url(../../Images/coffee.jpg);
+  background: url(../../Images/1067-2000x1000.jpg);
   background-attachment: fixed;
 }
 .parallax-container {
@@ -44,13 +44,10 @@
 }
 /* Landing Div - NavBar */
 #landing-div {
-  @include background("../../Images/1067-2000x1000.jpg", center);
+  @include background("../../Images/0-5616x3744.jpg", center);
   height: 700px;
 }
 
-nav {
-  background: none !important;
-}
 /*Icons And font*/
 .fas {
   font-size: 50px;

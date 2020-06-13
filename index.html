@@ -34,22 +34,37 @@
     <!--Landing and NavBar-->
     <div id="landing-div" class="container">
       <!--------------NavBar------------------->
-      <nav>
+      <nav style="background: none;">
         <div class="nav-wrapper">
           <a href="index.html" class="brand-logo">Logo</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
           <ul class="right hide-on-med-and-down">
             <li>
-              <a href="public/createTask.html"
+              <a href="./public/createTask.html"
                 ><i class="material-icons left">create</i>New Task</a
               >
             </li>
             <li>
-              <a href="public/dashboard.html"
+              <a href="./public/dashboard.html"
                 ><i class="material-icons left">dashboard</i>Dashboard</a
               >
             </li>
           </ul>
         </div>
+        <ul class="sidenav" id="mobile-demo">
+          <li>
+            <a href="./public/createTask.html"
+              ><i class="material-icons left">create</i>New Task</a
+            >
+          </li>
+          <li>
+            <a href="./public/dashboard.html"
+              ><i class="material-icons left">dashboard</i>Dashboard</a
+            >
+          </li>
+        </ul>
       </nav>
       <!--Landing content-->
       <div class="row">
@@ -113,5 +128,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Jquery CDN from google-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="public/Assets/Javascript/Landing.js"></script>
   </body>
 </html>
