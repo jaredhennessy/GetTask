@@ -50,4 +50,28 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.get("/api/users", (req, res) => {
+    db.User.findAll({
+      attributes: [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        [sequelize.fn("count", sequelize.col("assigned.id")), "count"]
+      ],
+      include: [
+        {
+          model: db.Task,
+          as: "assigned"
+        },
+        {
+          model: db.Task,
+          as: "created"
+        }
+      ]
+    }).then(dbTask => {
+      res.json(dbTask);
+    });
+  });
 };

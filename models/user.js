@@ -42,9 +42,13 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Task, {
-      as: "creator",
+      as: "created",
       foreignKey: "creatorId",
       onDelete: "cascade"
+    });
+    User.hasMany(models.Task, {
+      as: "assigned",
+      foreignKey: "assigneeId"
     });
   };
 

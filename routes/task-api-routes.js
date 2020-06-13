@@ -16,20 +16,44 @@ module.exports = function(app) {
           as: "creator"
         }
       ]
-    }).then(dbPost => {
-      res.json(dbPost);
+    }).then(dbTask => {
+      res.json(dbTask);
     });
   });
 
-  // app.get("/api/list/:id", (req, res) => {
-  //   db.Task.findOne({
-  //     where: {
-  //       assigneeId: req.params.id
-  //     },
-  //     include: [db.User],
-  //     as: "User"
-  //   }).then(dbPost => {
-  //     res.json(dbPost);
-  //   });
-  // });
+  app.get("/api/list/:id", (req, res) => {
+    db.Task.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: db.User,
+          as: "assignee"
+        },
+        {
+          model: db.User,
+          as: "creator"
+        }
+      ]
+    }).then(dbTask => {
+      res.json(dbTask);
+    });
+  });
+
+  app.post("/api/posts", (req, res) => {
+    db.Task.create(req.body).then(dbTask => {
+      res.json(dbTask);
+    });
+  });
+
+  app.put("/api/posts", (req, res) => {
+    db.Task.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(dbTask => {
+      res.json(dbTask);
+    });
+  });
 };
