@@ -1,41 +1,44 @@
-<!--Description row-->
-<div class="row">
-  <div class="col s6">
-    <h3>Dashboard</h3>
+<body>
+  <link rel="stylesheet" href="/assets/SASS-CSS/dashboard/dashboard.css" />
+  <!--Description row-->
+  <div class="row">
+    <div class="col s6">
+      <h3>Open Tasks</h3>
+    </div>
+    <div style="text-align: right;" class="col s6">hello</div>
   </div>
-  <div style="text-align: right;" class="col s6">hello</div>
-</div>
-<!--Task container-->
-<div class="row">
-  <h1 style="text-align: center;">Welcome</h1>
-</div>
-<div class="row">
-  <table class="responsive-table highlight">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Estimated Completion</th>
-        <th>Creator</th>
-        <th>Assignee</th>
-      </tr>
-    </thead>
+  <!--Task container-->
+  <div class="row" id="test">
+    <h1 style="text-align: center;">Welcome</h1>
+  </div>
+  <div class="row">
+    <table class="responsive-table highlight">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Estimated Completion</th>
+          <th>Creator</th>
+          <th>Assignee</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      {{#each tasks}}
-      {{#unless completed}}
-      <tr>
-        <td>{{this.id}}</td>
-        <td>{{this.firstName}}</td>
-        <td>{{this.estCompletion}}</td>
-        <td>{{this.creator.firstName}}</td>
-        <td>{{this.assignee.firstName}}</td>
-      </tr>
-      {{/unless}}
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+      <tbody>
+        {{#each tasks}}
+        {{#unless completed}}
+        <tr>
+          <td>{{this.dataValues.id}}</td>
+          <td>{{this.dataValues.firstName}}</td>
+          <td>{{this.dataValues.estCompletion}}</td>
+          <td>{{this.dataValues.creator.firstName}}</td>
+          <td>{{this.dataValues.assignee.firstName}}</td>
+        </tr>
+        {{/unless}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../public/assets/js/list.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/list.js">
+</body >
