@@ -4,9 +4,7 @@ $(document).ready(() => {
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.firstName);
   });
-});
 
-$(document).ready(() => {
   fetcCityData();
   function fetcCityData() {
     $.ajax({
@@ -19,6 +17,7 @@ $(document).ready(() => {
     });
   }
 });
+
 //=================SideNav trigger=================//
 document.addEventListener("DOMContentLoaded", () => {
   const elems = document.querySelectorAll(".sidenav");
