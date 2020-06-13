@@ -28,9 +28,9 @@ router.get("/list", (req, res) => {
         as: "creator"
       }
     ]
-  }).then(dbTask => {
-    console.log(dbTask);
-    res.render("list", dbTask);
+  }).then(tasks => {
+    console.log(tasks);
+    res.render("list", { tasks });
   });
 });
 
