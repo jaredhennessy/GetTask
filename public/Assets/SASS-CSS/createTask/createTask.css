@@ -8,29 +8,9 @@
   height: 100vh;
 }
 
-.header {
-  padding-left: 30px;
-  padding-top: 70px;
-  padding-bottom: 20px;
-  margin: auto;
-}
-
-.card {
-  width: 90vw;
-  margin: auto;
-  border-radius: 0.5rem;
-}
-
-.btn-wrapper {
-  text-align: center;
-}
-
-.btn {
-  background-color: #554747d2;
-  border-radius: 0.5rem;
-}
-
-.datepicker-date-display {
-  background-color: #554747d2;
+.card-wrapper {
+  margin-top: 80px;
+  width: 65vw;
+  background-color: white;
 }
 /*# sourceMappingURL=createTask.css.map */
