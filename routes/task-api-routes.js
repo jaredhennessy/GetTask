@@ -9,13 +9,16 @@ module.exports = function(app) {
       include: [
         {
           model: db.User,
-          as: "assignee"
+          as: "assignee",
+          attributes: ["firstName", "lastName", "email"]
         },
         {
           model: db.User,
-          as: "creator"
+          as: "creator",
+          attributes: ["firstName", "lastName", "email"]
         }
-      ]
+      ],
+      raw: true
     }).then(dbTask => {
       res.json(dbTask);
     });
@@ -29,13 +32,16 @@ module.exports = function(app) {
       include: [
         {
           model: db.User,
-          as: "assignee"
+          as: "assignee",
+          attributes: ["firstName", "lastName", "email"]
         },
         {
           model: db.User,
-          as: "creator"
+          as: "creator",
+          attributes: ["firstName", "lastName", "email"]
         }
-      ]
+      ],
+      raw: true
     }).then(dbTask => {
       res.json(dbTask);
     });
