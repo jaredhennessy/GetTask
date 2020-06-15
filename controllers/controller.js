@@ -2,6 +2,22 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
+router.get("/", (req, res) => {
+  res.render("index");
+});
+
+router.get("/new", (req, res) => {
+  res.render("new");
+});
+
+router.get("/task", (req, res) => {
+  res.render("task");
+});
+
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
 router.get("/list", (req, res) => {
   db.Task.findAll({
     where: {

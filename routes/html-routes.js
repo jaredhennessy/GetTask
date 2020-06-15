@@ -1,17 +1,17 @@
 const path = require("path");
 
 // Checks if user is logged in
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+// const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
     // Anybody can access this page.
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
   });
 
   app.get("/signup", (req, res) => {
     //Anyone can access this page.
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.sendFile(path.join(__dirname, "signup.html"));
   });
 
   app.get("/login", (req, res) => {
@@ -19,7 +19,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/list");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "login.html"));
   });
 
   //The following routes can only be accessed by authenticated users.
