@@ -9,7 +9,7 @@
 .parallax {
   padding: 0px;
   margin-bottom: 0px;
-  background: url(../../Images/1067-2000x1000.jpg);
+  background: url(../../img/1067-2000x1000.jpg);
   background-attachment: fixed;
 }
 
@@ -40,7 +40,7 @@
 
 /* Landing Div - NavBar */
 #landing-div {
-  background-image: url("../../Images/0-5616x3744.jpg");
+  background-image: url("../../img/0-5616x3744.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

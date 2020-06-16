@@ -66,23 +66,47 @@ module.exports = function(app) {
         "email",
         [
           db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-          "ticketsAssigned"
+          "ticketsAssignedTotal"
+        ],
+        [
+          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+          "ticketsAssignedOpen"
+        ],
+        [
+          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+          "ticketsAssignedClosed"
         ],
         [
           db.sequelize.fn("count", db.sequelize.col("created.id")),
           "ticketsCreated"
         ]
       ],
+      group: ["id", "firstName", "lastName", "email"],
       include: [
         {
           model: db.Task,
-          as: "assigned"
+          as: "assigned",
+          attributes: []
         },
         {
           model: db.Task,
-          as: "created"
+          as: "created",
+          attributes: []
         }
-      ]
+        // ,
+        // count({
+        //   include: {
+        //     model: db.Task,
+        //     as: "assigned",
+        //     distinct: true,
+        //     attributes: ["assigneeId"],
+        //     where: { complete: true }
+        //   },
+        //   col: "id",
+        //   as: "ticketsClosed"
+        // })
+      ],
+      raw: true
     }).then(dbTask => {
       res.json(dbTask);
     });

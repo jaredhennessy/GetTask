@@ -26,11 +26,11 @@
       {{#each tasks}}
       {{#unless completed}}
       <tr>
-        <td>{{this.dataValues.id}}</td>
-        <td>{{this.dataValues.firstName}}</td>
-        <td>{{this.dataValues.estCompletion}}</td>
-        <td>{{this.dataValues.creator.firstName}}</td>
-        <td>{{this.dataValues.assignee.firstName}}</td>
+        <td>{{this.id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.estCompletion}}</td>
+        <td>{{this.[creator.firstName]}}</td>
+        <td>{{this.[assignee.firstName]}}</td>
       </tr>
       {{/unless}}
       {{/each}}

@@ -1,17 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-// const user = require("../models/user.js");
-// const task = require("../models/task.js");
 
-// router.get("/list", (req, res) => {
-//   task.all(data => {
-//     const taskObject = {
-//       tasks: data
-//     };
-//     res.render("list", taskObject);
-//   });
-// });
+router.get("/", (req, res) => {
+  res.render("index");
+});
+
+router.get("/new", (req, res) => {
+  res.render("new");
+});
+
+router.get("/task", (req, res) => {
+  res.render("task");
+});
+
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
 
 router.get("/list", (req, res) => {
   db.Task.findAll({
@@ -21,16 +26,82 @@ router.get("/list", (req, res) => {
     include: [
       {
         model: db.User,
-        as: "assignee"
+        as: "assignee",
+        attributes: ["firstName", "lastName", "email"]
       },
       {
         model: db.User,
-        as: "creator"
+        as: "creator",
+        attributes: ["firstName", "lastName", "email"]
       }
-    ]
+    ],
+    raw: true
   }).then(tasks => {
-    console.log(tasks);
     res.render("list", { tasks });
+  });
+});
+
+router.get("/task/:id", (req, res) => {
+  db.Task.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: db.User,
+        as: "assignee",
+        attributes: ["firstName", "lastName", "email"]
+      },
+      {
+        model: db.User,
+        as: "creator",
+        attributes: ["firstName", "lastName", "email"]
+      }
+    ],
+    raw: true
+  }).then(task => {
+    res.render("task", { task });
+  });
+
+  app.get("/users", (req, res) => {
+    db.User.findAll({
+      attributes: [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        [
+          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+          "ticketsAssignedTotal"
+        ],
+        [
+          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+          "ticketsAssignedOpen"
+        ],
+        [
+          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+          "ticketsAssignedClosed"
+        ],
+        [
+          db.sequelize.fn("count", db.sequelize.col("created.id")),
+          "ticketsCreated"
+        ]
+      ],
+      group: ["id", "firstName", "lastName", "email"],
+      include: [
+        {
+          model: db.Task,
+          as: "assigned"
+        },
+        {
+          model: db.Task,
+          as: "created"
+        }
+      ],
+      raw: true
+    }).then(users => {
+      res.render("users", { users });
+    });
   });
 });
 

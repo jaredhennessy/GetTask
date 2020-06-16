@@ -37,8 +37,8 @@ app.set("view engine", "handlebars");
 
 require("./routes/task-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
-const routes = require("./controllers/controller.js");
-app.use(routes);
+const router = require("./controllers/controller.js");
+app.use(router);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
