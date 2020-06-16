@@ -15,7 +15,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public/"));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
