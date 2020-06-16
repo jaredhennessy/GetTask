@@ -2,7 +2,6 @@
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-const path = require("path");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
@@ -12,13 +11,24 @@ const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+const path = require("path");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // app.use(express.static(__dirname + "/public/"));
-process.env.PWD = process.cwd();
-app.use(express.static(path.join(process.env.PWD, "public")));
+app.use(express.static(path.join(__dirname + "/public")));
+app.use("assets/css", express.static(__dirname + "/public/assets/css"));
+app.use("assets/img", express.static(__dirname + "/public/assets/img"));
+app.use("assets/js", express.static(__dirname + "/public/assets/js"));
+app.use(
+  "assets/SASS-CSS",
+  express.static(__dirname + "/public/assets/SASS-CSS")
+);
+app.use(
+  "assets/templates",
+  express.static(__dirname + "/public/assets/templates")
+);
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
