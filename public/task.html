@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Create a Task</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">GetTask</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Sign Out</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Tasks</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Users</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Sign Out</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Tasks</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Users</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 m2">
+        </div>
+        <div class="col s12 m8">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">note</i></h2>
+            <h5 class="center">NewTask.exe</h5>
+            <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="input_text" type="text" data-length="10">
+                      <label for="input_text">Title</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                      <label for="textarea2">Task</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+          </div>        
+        </div>
+        <div class="col s12 m2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Group Four - Project 2</h5>
+          <p class="grey-text text-lighten-4">We are a team of bootcamp students at the University of Washington. We hope you enjoy our task management app, please feel free to view each team member's personal portfolio to the right.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Team Members</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Alyssa's portfolio</a></li>
+            <li><a class="white-text" href="#!">Daniel's portfolio</a></li>
+            <li><a class="white-text" href="#!">Jared's portfolio</a></li>
+            <li><a class="white-text" href="#!">Tyler's portfolio</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made in <a class="green-text text-lighten-3">Washington, USA</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/js/materialize.js"></script>
+  <script src="assets/js/init.js"></script>
+
+  </body>
+</html>
