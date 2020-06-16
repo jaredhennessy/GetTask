@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>NewTask</title>
+  <title>TaskList</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -43,31 +43,43 @@
         <div class="col s12 m2">
         </div>
         <div class="col s12 m8">
-          <div class="icon-block">
-            <h5 class=>NewTask</h5>
-          </br>
-          </br>
-          </br> 
-            <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <input id="input_text" type="text" data-length="50">
-                      <label for="input_text">Title</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="textarea2" class="materialize-textarea" data-length="255"></textarea>
-                      <label for="textarea2">Task</label>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-            </button>
-          </div>        
+            <h5>TaskName</h5>
+            </br>
+            </br>
+            <ul class="collection">
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle"></i>
+                      <p>Task ID <br>
+                         Title <br>
+                      </p>
+                      <p class="secondary-content">
+                         Completion date: 
+                      </p>
+                      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                    </li>
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle green"></i>
+                      <p>Task ID <br>
+                        Title <br>
+                     </p>
+                     <p class="secondary-content">
+                            Completion date: 
+                    </p>
+                      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                    </li>
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle red"></i>
+                      <p>Task ID <br>
+                        Title <br>
+                     </p>
+                     <p class="secondary-content">
+                            Completion date: 
+                    </p>
+                      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                    </li>
+                  </ul>
+            </br>
+            </br>
         </div>
         <div class="col s12 m2">
         </div>
