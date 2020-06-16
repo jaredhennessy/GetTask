@@ -66,7 +66,7 @@ Navigate to https://calm-scrubland-27592.herokuapp.com/ and log in. If you are a
 https://calm-scrubland-27592.herokuapp.com/
 
 ## GitHub Repo:    
-https://calm-scrubland-27592.herokuapp.com/
+https://github.com/jaredhennessy/Project-2
 
 ## Directions for Future Development
 --Comparative/competitive features--badges for the employee who has completed the most tasks or who has done tasks in the shortest amount of time, for example.      
