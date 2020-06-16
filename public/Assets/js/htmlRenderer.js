@@ -3,7 +3,6 @@ const fs = require("fs");
 
 const templatesDir = path.resolve(__dirname, "../templates");
 
-
 // call render in the app
 const render = taskList => {
   const html = [];

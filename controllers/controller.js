@@ -49,7 +49,7 @@ router.get("/signup", (req, res) => {
   res.render("signup", {
     title: "Sign Up",
     loginoutlink: "/",
-    loginout: "Logout",
+    loginout: "Log In",
     list: "Tasks",
     users: "Users",
     scripts: scripts
