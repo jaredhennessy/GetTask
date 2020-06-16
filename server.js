@@ -18,7 +18,7 @@ app.use(express.json());
 
 // app.use(express.static(__dirname + "/public"));
 process.env.PWD = process.cwd();
-app.use(express.static(path.join(process.env.PWD, "public")));
+app.use(express.static(path.join(process.env.PWD, "/public/")));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
