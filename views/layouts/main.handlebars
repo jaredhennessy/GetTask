@@ -2,49 +2,79 @@
 <html lang="en">
 
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Style and fonts links-->
-    <!--Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
-    <!--Font Awesome-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-    <!--Materialize Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <!--Custom SASS/CSS-->
-
-
-    <title>Document</title>
-  </head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
-  <nav style="background: none;">
-    <div class="nav-wrapper">
-      <a href="../index.html" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">GetTask</a>
       <ul class="right hide-on-med-and-down">
-        <li>
-          <a href="createTask.html"><i class="material-icons left">create</i>New Task</a>
-        </li>
-        <li>
-          <a href="dashboard.html"><i class="material-icons left">dashboard</i>Dashboard</a>
-        </li>
+        <li><a href="{{ loginoutlink }}">{{ loginout }}</a></li>
       </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/list">{{ list }}</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/users">{{ users }}</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="{{ loginoutlink }}">{{ loginout }}</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/list">{{ list }}</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/users">{{ users }}</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
-    <ul class="sidenav" id="mobile-demo">
-      <li>
-        <a href="createTask.html"><i class="material-icons left">create</i>New Task</a>
-      </li>
-      <li>
-        <a href="dashboard.html"><i class="material-icons left">dashboard</i>Dashboard</a>
-      </li>
-    </ul>
   </nav>
 
   {{{ body }}}
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">GetTask Project Team</h5>
+          <p class="grey-text text-lighten-4">We are a team of bootcamp students at the University of Washington. We
+            hope you enjoy our task management app, please feel free to view each team member's personal portfolio to
+            the right.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Team Members</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Alyssa's portfolio</a></li>
+            <li><a class="white-text" href="#!">Daniel's portfolio</a></li>
+            <li><a class="white-text" href="#!">Jared's portfolio</a></li>
+            <li><a class="white-text" href="#!">Tyler's portfolio</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made in <a class="green-text text-lighten-3">Washington, USA</a>
+      </div>
+    </div>
+  </footer>
+  {{#each scripts}}
+  <script src="{{script}}"></script>
+  {{/each}}
+
 </body>
 
 </html>
