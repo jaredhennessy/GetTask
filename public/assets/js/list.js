@@ -9,6 +9,10 @@ $(document).ready(() => {
     $(location).attr("href", "/task/:id");
   });
 
+  $("#newTask").on("click", () => {
+    $(location).attr("href", "/new");
+  });
+
   fetcCityData();
   function fetcCityData() {
     $.ajax({
