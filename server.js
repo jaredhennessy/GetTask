@@ -14,7 +14,8 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
@@ -35,9 +36,12 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
+// require("./routes/html-routes.js")(app);
+// require("./controllers/controller.js")(app);
 require("./routes/task-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
+const routes = require("./controllers/controller.js");
+app.use(routes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

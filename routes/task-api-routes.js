@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.get("/api/list", (req, res) => {
     db.Task.findAll({
       where: {
-        complete: true
+        complete: false
       },
       include: [
         {
