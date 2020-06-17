@@ -195,54 +195,56 @@ router.get("/api/task/:id", (req, res) => {
   }).then(task => {
     res.json(task);
   });
+});
 
-  router.get("/users", (req, res) => {
-    db.User.findAll({
-      attributes: [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        [
-          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-          "ticketsAssignedTotal"
-        ],
-        [
-          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-          "ticketsAssignedOpen"
-        ],
-        [
-          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-          "ticketsAssignedClosed"
-        ],
-        [
-          db.sequelize.fn("count", db.sequelize.col("created.id")),
-          "ticketsCreated"
-        ]
+router.get("/users", (req, res) => {
+  db.User.findAll({
+    attributes: [
+      "id",
+      "firstName",
+      "lastName",
+      "email",
+      [
+        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+        "ticketsAssignedTotal"
       ],
-      group: ["id", "firstName", "lastName", "email"],
-      include: [
-        {
-          model: db.Task,
-          as: "assigned"
-        },
-        {
-          model: db.Task,
-          as: "created"
-        }
+      [
+        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+        "ticketsAssignedOpen"
       ],
-      raw: true
-    }).then(users => {
-      scripts.push({ script: "/assets/js/users.js" });
-      res.render("users", {
-        title: "User List",
-        loginoutlink: "/",
-        loginout: "Logout",
-        list: "Tasks",
-        users: "Users",
-        scripts: scripts,
-        users
-      });
+      [
+        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+        "ticketsAssignedClosed"
+      ],
+      [
+        db.sequelize.fn("count", db.sequelize.col("created.id")),
+        "ticketsCreated"
+      ]
+    ],
+    group: ["id", "firstName", "lastName", "email"],
+    include: [
+      {
+        model: db.Task,
+        as: "assigned",
+        attributes: []
+      },
+      {
+        model: db.Task,
+        as: "created",
+        attributes: []
+      }
+    ],
+    raw: true
+  }).then(users => {
+    scripts.push({ script: "/assets/js/users.js" });
+    res.render("users", {
+      title: "User List",
+      loginoutlink: "/",
+      loginout: "Logout",
+      list: "Tasks",
+      users: "Users",
+      scripts: scripts,
+      users
     });
   });
 });
@@ -283,18 +285,6 @@ router.get("/api/users", (req, res) => {
         as: "created",
         attributes: []
       }
-      // ,
-      // count({
-      //   include: {
-      //     model: db.Task,
-      //     as: "assigned",
-      //     distinct: true,
-      //     attributes: ["assigneeId"],
-      //     where: { complete: true }
-      //   },
-      //   col: "id",
-      //   as: "ticketsClosed"
-      // })
     ],
     raw: true
   }).then(dbTask => {
