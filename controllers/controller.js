@@ -3,7 +3,8 @@ const router = express.Router();
 const db = require("../models");
 
 const scripts = [
-  { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
+  // { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
+  { script: "https://code.jquery.com/jquery.js" },
   { script: "../assets/js/materialize.js" }
 ];
 
@@ -46,7 +47,7 @@ router.get("/new", (req, res) => {
 
 router.post("/api/new", (req, res) => {
   db.Task.create(req.body).then(newTask => {
-    console.log(req.body);
+    // console.log(req.body);
     res.json(newTask);
   });
 });
@@ -148,7 +149,7 @@ router.get("/task/:id", (req, res) => {
     ],
     raw: true
   }).then(task => {
-    console.log(task);
+    // console.log(task);
     scripts.push({ script: "../assets/js/task.js" });
     res.render("task", {
       title: "Edit Task",
@@ -165,7 +166,8 @@ router.get("/task/:id", (req, res) => {
   });
 });
 
-router.put("/api/task", (req, res) => {
+router.put("/api/task/", (req, res) => {
+  console.log(req.body);
   db.Task.update(req.body, {
     where: {
       id: req.body.id
