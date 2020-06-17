@@ -6,10 +6,11 @@ $(document).ready(() => {
   });
 
   $("ul").on("click", () => {
-    $(location).attr("href", "/task/:id");
+    const taskID = $("#task-id").text();
+    $(location).attr("href", "/task/" + taskID);
   });
 
-  $("#newTask").on("click", () => {
+  $("#btnNew").on("click", () => {
     $(location).attr("href", "/new");
   });
 
