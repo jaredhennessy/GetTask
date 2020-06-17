@@ -60,7 +60,7 @@ Navigate to https://calm-scrubland-27592.herokuapp.com/ and log in. If you are a
 ![image]()
 
 ## Link to Presentation
-()
+[Presentation Slides](https://docs.google.com/presentation/d/1O5oq3THaB4RQvdi4qdv2OhZ-9jJtM3fQv-uiiyGZjHA/edit#slide=id.g81e58f5b76_0_9)
 
 ## Deployed Application:
 https://calm-scrubland-27592.herokuapp.com/
