@@ -19,21 +19,30 @@ $(document).ready(() => {
 
   $("#btnSave").on("click", () => {
     const newDate = $("#formDate").val();
-    const taskData = { id: taskId, estCompletion: newDate };
-    console.log(taskData);
-    updateTask(taskData);
+    const updTask = {
+      id: taskId,
+      estCompletion: newDate
+    };
+    console.log(updTask);
+    updateTask(updTask);
   });
 
   $("#btnAssign").on("click", () => {
-    const taskData = { id: taskId, assigneeId: userId };
-    console.log(taskData);
-    updateTask(taskData);
+    const updTask = {
+      id: taskId,
+      assigneeId: userId
+    };
+    console.log(updTask);
+    updateTask(updTask);
   });
 
   $("#btnComplete").on("click", () => {
-    const taskData = { id: taskId, estCompletion: newDate };
-    console.log(taskData);
-    updateTask(taskData);
+    const updTask = {
+      id: taskId,
+      complete: true
+    };
+    console.log(updTask);
+    updateTask(updTask);
   });
 
   function updateTask(taskData) {
