@@ -18,16 +18,13 @@
           {{#each users}}
           <li class="collection-item avatar">
             <i class="material-icons circle"></i>
-            <p>{{this.firstName}}{{this.lastName}}<br>
-              <br>
+            <p>{{this.firstName}} {{this.lastName}}<br>
+              Created Tasks: {{this.ticketsCreated}} <br>
+              Completed Tasks: {{this.ticketsAssignedClosed}} <br>
             </p>
             <p class="secondary-content">
               Open Tasks: {{this.ticketsAssignedOpen}}
             </p>
-            <p class="secondary-content">
-              Completed Tasks: {{this.ticketsAssignedClosed}}
-            </p>
-            <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
           </li>
           {{/each}}
         </ul>
