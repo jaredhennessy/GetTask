@@ -157,8 +157,8 @@ router.get("/task/:id", (req, res) => {
       userText: "Users",
       scripts: scripts,
       id: task.id,
-      title: task.title,
-      description: task.description,
+      taskTitle: task.title,
+      taskDesc: task.description,
       estCompletion: task.estCompletion
     });
   });
