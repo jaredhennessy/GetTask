@@ -237,7 +237,9 @@ router.get("/users", (req, res) => {
     ],
     raw: true
   }).then(users => {
+
     scripts.push({ script: "../assets/js/users.js" });
+
     res.render("users", {
       title: "User List",
       loginoutLink: "/",
