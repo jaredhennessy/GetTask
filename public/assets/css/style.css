@@ -19,6 +19,14 @@ p {
   color: #26a69a;
 }
 
+#email-input {
+  color: #ffffff
+}
+
+#password-input {
+  color: #ffffff
+}
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;
