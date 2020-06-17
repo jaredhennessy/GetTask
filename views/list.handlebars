@@ -28,7 +28,7 @@
             <button type="submit" class="btn btn-small">Unassigned</button>
           </div>
           <div class="col s12 m2">
-            <a id="newTask" class="btn-floating btn-large waves-effect waves-light teal"><i
+            <a id="btnNew" class="btn-floating btn-large waves-effect waves-light teal"><i
                 class="material-icons">add</i></a>
           </div>
         </div>
@@ -37,7 +37,7 @@
           {{#unless completed}}
           <li class="collection-item avatar">
             <i class="material-icons circle"></i>
-            <p>{{this.id}}<br>
+            <p><span id="task-id">{{this.id}}</span><br>
               {{this.title}} <br>
             </p>
             <p class="secondary-content">
