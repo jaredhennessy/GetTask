@@ -11,11 +11,14 @@ const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+const path = require("path");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static("public"));
-app.use(express.static(__dirname + "/public"));
+
+// app.use(express.static(__dirname + "/public"));
+process.env.PWD = process.cwd();
+app.use(express.static(path.join(process.env.PWD, "/public/")));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
@@ -35,13 +38,9 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./controllers/controller.js")(app);
-require("./routes/task-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
-const routes = require("./controllers/controller.js");
-app.use(routes);
+const router = require("./controllers/controller.js");
+app.use(router);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

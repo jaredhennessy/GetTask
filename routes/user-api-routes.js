@@ -50,41 +50,4 @@ module.exports = function(app) {
       });
     }
   });
-
-  // app.get("/api/users", (req, res) => {
-  //   const queryStr =
-  //     "SELECT u.id, u.firstName, u.lastName, u.email, COUNT(DISTINCT CASE WHEN a.complete = 'false' THEN a.id ELSE NULL END) `Open Tickets`, COUNT(DISTINCT CASE WHEN a.complete = 'true' THEN a.id ELSE NULL END) `Closed Tickets`, COUNT(DISTINCT c.id) `Created Tickets` FROM users u LEFT JOIN tasks a ON u.id = a.assigneeId LEFT JOIN tasks c ON u.id = c.creatorId GROUP BY u.id, u.firstName, u.lastName, u.email";
-  //     const [results, metadata] = await sequelize.query(queryStr);
-  //   });
-
-  app.get("/api/users", (req, res) => {
-    db.User.findAll({
-      attributes: [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        [
-          db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-          "ticketsAssigned"
-        ],
-        [
-          db.sequelize.fn("count", db.sequelize.col("created.id")),
-          "ticketsCreated"
-        ]
-      ],
-      include: [
-        {
-          model: db.Task,
-          as: "assigned"
-        },
-        {
-          model: db.Task,
-          as: "created"
-        }
-      ]
-    }).then(dbTask => {
-      res.json(dbTask);
-    });
-  });
 };

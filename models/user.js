@@ -44,11 +44,13 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Task, {
       as: "created",
       foreignKey: "creatorId",
-      onDelete: "cascade"
+      onDelete: "cascade",
+      allowNull: false
     });
     User.hasMany(models.Task, {
       as: "assigned",
-      foreignKey: "assigneeId"
+      foreignKey: "assigneeId",
+      allowNull: true
     });
   };
 

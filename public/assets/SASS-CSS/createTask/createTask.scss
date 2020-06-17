@@ -1,0 +1,21 @@
+@mixin background($imgpath, $position: 0 0, $repeat: no-repeat) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+    size: cover;
+    attachment: fixed;
+  }
+}
+
+.body-style {
+  @include background("../../Images/0-5616x3744.jpg", center);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.card-wrapper {
+  margin-top: 80px;
+  width: 65vw;
+  background-color: white;
+}

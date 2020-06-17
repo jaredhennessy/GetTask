@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAUA,AAAA,WAAW,CAAC;EARR,gBAAK,EAAE,mCAAa;EACpB,mBAAQ,EAQ0C,MAAM;EAPxD,iBAAM,EAJ2C,SAAS;EAK1D,eAAI,EAAE,KAAK;EACX,qBAAU,EAAE,KAAK;EAMnB,iBAAiB,EAAE,SAAS;EAC5B,MAAM,EAAE,KAAK;CACd;;AAED,AAAA,aAAa,CAAC;EACZ,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,IAAI;EACX,gBAAgB,EAAE,KAAK;CACxB",
+    "sources": [
+        "createTask.scss"
+    ],
+    "names": [],
+    "file": "createTask.css"
+}
