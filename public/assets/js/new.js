@@ -20,8 +20,8 @@ $(() => {
       .trim();
 
     const newTask = {
-      taskTitle: taskTitle,
-      taskDesc: taskDesc
+      title: taskTitle,
+      description: taskDesc
     };
 
     $.ajax("/api/new", {
