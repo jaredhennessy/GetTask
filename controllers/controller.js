@@ -3,8 +3,8 @@ const router = express.Router();
 const db = require("../models");
 
 const scripts = [
-  // { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-  { script: "https://code.jquery.com/jquery.js" },
+  { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
+  // { script: "https://code.jquery.com/jquery.js" },
   { script: "../assets/js/materialize.js" }
 ];
 
@@ -201,98 +201,34 @@ router.get("/api/task/:id", (req, res) => {
 });
 
 router.get("/users", (req, res) => {
-  db.User.findAll({
-    attributes: [
-      "id",
-      "firstName",
-      "lastName",
-      "email",
-      [
-        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-        "ticketsAssignedTotal"
-      ],
-      [
-        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-        "ticketsAssignedOpen"
-      ],
-      [
-        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-        "ticketsAssignedClosed"
-      ],
-      [
-        db.sequelize.fn("count", db.sequelize.col("created.id")),
-        "ticketsCreated"
-      ]
-    ],
-    group: ["id", "firstName", "lastName", "email"],
-    include: [
-      {
-        model: db.Task,
-        as: "assigned",
-        attributes: []
-      },
-      {
-        model: db.Task,
-        as: "created",
-        attributes: []
-      }
-    ],
-    raw: true
-  }).then(users => {
-    scripts.push({ script: "../assets/js/users.js" });
-    res.render("users", {
-      title: "User List",
-      loginoutLink: "/",
-      loginoutText: "Logout",
-      listText: "Tasks",
-      userText: "Users",
-      scripts: scripts,
-      users
+  db.sequelize
+    .query(
+      "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));",
+      { type: db.sequelize.QueryTypes.SELECT }
+    )
+    .then(users => {
+      scripts.push({ script: "../assets/js/users.js" });
+      res.render("users", {
+        title: "User List",
+        loginoutLink: "/",
+        loginoutText: "Logout",
+        listText: "Tasks",
+        userText: "Users",
+        scripts: scripts,
+        users
+      });
     });
-  });
 });
 
 router.get("/api/users", (req, res) => {
-  db.User.findAll({
-    attributes: [
-      "id",
-      "firstName",
-      "lastName",
-      "email",
-      [
-        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-        "ticketsAssignedTotal"
-      ],
-      [
-        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-        "ticketsAssignedOpen"
-      ],
-      [
-        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
-        "ticketsAssignedClosed"
-      ],
-      [
-        db.sequelize.fn("count", db.sequelize.col("created.id")),
-        "ticketsCreated"
-      ]
-    ],
-    group: ["id", "firstName", "lastName", "email"],
-    include: [
-      {
-        model: db.Task,
-        as: "assigned",
-        attributes: []
-      },
-      {
-        model: db.Task,
-        as: "created",
-        attributes: []
-      }
-    ],
-    raw: true
-  }).then(dbTask => {
-    res.json(dbTask);
-  });
+  db.sequelize
+    .query(
+      "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));",
+      { type: db.sequelize.QueryTypes.SELECT }
+    )
+    .then(dbTask => {
+      res.json(dbTask);
+    });
 });
 
 module.exports = router;
