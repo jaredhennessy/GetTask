@@ -28,8 +28,8 @@ A web app that allows development or work teams to collaborate on and keep track
 
 ## User Story  
 As a TEAM MEMBER,   
-I WANT an application that allows my team to post tasks, bugs, and problems that other team members can claim and work on   
-SO THAT we can stay effiecient and organized when working on projects. 
+I WANT an application that allows my team to post tasks, bugs, and issues that other team members can claim and complete   
+SO THAT we can stay efficient and organized when working on projects. 
 
 ## Technologies Used  
 Built in Visual Studio using MVC paradigm with            
