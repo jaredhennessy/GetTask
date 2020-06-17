@@ -36,7 +36,8 @@ Built in Visual Studio using MVC paradigm with
 HTML          
 CSS       
 SASS   
-Javascript          
+Javascript
+jQuery          
 Node.js        
 Express     
 MySQL    
