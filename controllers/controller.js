@@ -20,6 +20,18 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/signup", (req, res) => {
+  scripts.push({ script: "/assets/js/signup.js" });
+  res.render("signup", {
+    title: "Sign Up",
+    loginoutlink: "/",
+    loginout: "Log In",
+    list: "Tasks",
+    users: "Users",
+    scripts: scripts
+  });
+});
+
 router.get("/new", (req, res) => {
   scripts.push({ script: "/assets/js/new.js" });
   res.render("new", {
@@ -32,27 +44,9 @@ router.get("/new", (req, res) => {
   });
 });
 
-router.get("/task", (req, res) => {
-  scripts.push({ script: "/assets/js/task.js" });
-  res.render("task", {
-    title: "New Task",
-    loginoutlink: "/",
-    loginout: "Logout",
-    list: "Tasks",
-    users: "Users",
-    scripts: scripts
-  });
-});
-
-router.get("/signup", (req, res) => {
-  scripts.push({ script: "/assets/js/signup.js" });
-  res.render("signup", {
-    title: "Sign Up",
-    loginoutlink: "/",
-    loginout: "Log In",
-    list: "Tasks",
-    users: "Users",
-    scripts: scripts
+router.post("/api/new", (req, res) => {
+  db.Task.create(req.body).then(dbTask => {
+    res.json(dbTask);
   });
 });
 
@@ -88,6 +82,52 @@ router.get("/list", (req, res) => {
   });
 });
 
+router.get("/api/list/:id", (req, res) => {
+  db.Task.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: db.User,
+        as: "assignee",
+        attributes: ["firstName", "lastName", "email"]
+      },
+      {
+        model: db.User,
+        as: "creator",
+        attributes: ["firstName", "lastName", "email"]
+      }
+    ],
+    raw: true
+  }).then(dbTask => {
+    res.json(dbTask);
+  });
+});
+
+router.get("/api/list", (req, res) => {
+  db.Task.findAll({
+    where: {
+      complete: false
+    },
+    include: [
+      {
+        model: db.User,
+        as: "assignee",
+        attributes: ["firstName", "lastName", "email"]
+      },
+      {
+        model: db.User,
+        as: "creator",
+        attributes: ["firstName", "lastName", "email"]
+      }
+    ],
+    raw: true
+  }).then(dbTask => {
+    res.json(dbTask);
+  });
+});
+
 router.get("/task/:id", (req, res) => {
   db.Task.findOne({
     where: {
@@ -118,8 +158,41 @@ router.get("/task/:id", (req, res) => {
       task
     });
   });
+});
 
-  app.get("/users", (req, res) => {
+router.put("/api/task", (req, res) => {
+  db.Task.update(req.body, {
+    where: {
+      id: req.body.id
+    }
+  }).then(dbTask => {
+    res.json(dbTask);
+  });
+});
+
+router.get("/api/task/:id", (req, res) => {
+  db.Task.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: db.User,
+        as: "assignee",
+        attributes: ["firstName", "lastName", "email"]
+      },
+      {
+        model: db.User,
+        as: "creator",
+        attributes: ["firstName", "lastName", "email"]
+      }
+    ],
+    raw: true
+  }).then(task => {
+    res.json(task);
+  });
+
+  router.get("/users", (req, res) => {
     db.User.findAll({
       attributes: [
         "id",
@@ -167,6 +240,61 @@ router.get("/task/:id", (req, res) => {
         users
       });
     });
+  });
+});
+
+router.get("/api/users", (req, res) => {
+  db.User.findAll({
+    attributes: [
+      "id",
+      "firstName",
+      "lastName",
+      "email",
+      [
+        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+        "ticketsAssignedTotal"
+      ],
+      [
+        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+        "ticketsAssignedOpen"
+      ],
+      [
+        db.sequelize.fn("count", db.sequelize.col("assigned.id")),
+        "ticketsAssignedClosed"
+      ],
+      [
+        db.sequelize.fn("count", db.sequelize.col("created.id")),
+        "ticketsCreated"
+      ]
+    ],
+    group: ["id", "firstName", "lastName", "email"],
+    include: [
+      {
+        model: db.Task,
+        as: "assigned",
+        attributes: []
+      },
+      {
+        model: db.Task,
+        as: "created",
+        attributes: []
+      }
+      // ,
+      // count({
+      //   include: {
+      //     model: db.Task,
+      //     as: "assigned",
+      //     distinct: true,
+      //     attributes: ["assigneeId"],
+      //     where: { complete: true }
+      //   },
+      //   col: "id",
+      //   as: "ticketsClosed"
+      // })
+    ],
+    raw: true
+  }).then(dbTask => {
+    res.json(dbTask);
   });
 });
 

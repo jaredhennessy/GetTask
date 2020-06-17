@@ -38,7 +38,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-require("./routes/task-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 const router = require("./controllers/controller.js");
 app.use(router);
