@@ -4,12 +4,12 @@ const db = require("../models");
 
 const scripts = [
   { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-  { script: "assets/js/materialize.js" }
+  { script: "../assets/js/materialize.js" }
 ];
 
 router.get("/", (req, res) => {
-  scripts.push({ script: "/assets/js/init.js" });
-  scripts.push({ script: "/assets/js/login.js" });
+  scripts.push({ script: "../assets/js/init.js" });
+  scripts.push({ script: "../assets/js/login.js" });
   res.render("index", {
     title: "GetTask",
     loginoutLink: "/signup",
@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  scripts.push({ script: "/assets/js/signup.js" });
+  scripts.push({ script: "../assets/js/signup.js" });
   res.render("signup", {
     title: "Sign Up",
     loginoutLink: "/",
@@ -33,7 +33,7 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-  scripts.push({ script: "/assets/js/new.js" });
+  scripts.push({ script: "../assets/js/new.js" });
   res.render("new", {
     title: "New Task",
     loginoutLink: "/",
@@ -69,7 +69,7 @@ router.get("/list", (req, res) => {
     ],
     raw: true
   }).then(tasks => {
-    scripts.push({ script: "/assets/js/list.js" });
+    scripts.push({ script: "../assets/js/list.js" });
     res.render("list", {
       title: "Task List",
       loginoutLink: "/",
@@ -148,7 +148,7 @@ router.get("/task/:id", (req, res) => {
     raw: true
   }).then(task => {
     console.log(task);
-    scripts.push({ script: "/assets/js/task.js" });
+    scripts.push({ script: "../assets/js/task.js" });
     res.render("task", {
       title: "Edit Task",
       loginoutLink: "/",
@@ -157,8 +157,8 @@ router.get("/task/:id", (req, res) => {
       userText: "Users",
       scripts: scripts,
       id: task.id,
-      title: task.title,
-      description: task.description,
+      taskTitle: task.title,
+      taskDesc: task.description,
       estCompletion: task.estCompletion
     });
   });
@@ -236,7 +236,9 @@ router.get("/users", (req, res) => {
     ],
     raw: true
   }).then(users => {
-    scripts.push({ script: "/assets/js/users.js" });
+
+    scripts.push({ script: "../assets/js/users.js" });
+
     res.render("users", {
       title: "User List",
       loginoutLink: "/",
