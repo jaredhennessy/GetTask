@@ -26,8 +26,8 @@ router.get("/signup", (req, res) => {
     title: "Sign Up",
     loginoutLink: "/",
     loginoutText: "Log In",
-    listText: "Tasks",
-    userText: "Users",
+    listText: "",
+    userText: "",
     scripts: scripts
   });
 });
