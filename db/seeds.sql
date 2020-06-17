@@ -22,4 +22,3 @@ VALUES ('seeds','populate tables',false,'2020-06-12',CURDATE(),CURDATE(),NULL,(s
 
 select * from Users;
 select * from Tasks;
-

@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     },
     estCompletion: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: true
     }
   });
