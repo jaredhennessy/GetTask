@@ -147,6 +147,7 @@ router.get("/task/:id", (req, res) => {
     ],
     raw: true
   }).then(task => {
+    console.log(task);
     scripts.push({ script: "/assets/js/task.js" });
     res.render("task", {
       title: "Edit Task",
@@ -155,7 +156,10 @@ router.get("/task/:id", (req, res) => {
       list: "Tasks",
       users: "Users",
       scripts: scripts,
-      task
+      id: task.id,
+      title: task.title,
+      description: task.description,
+      estCompletion: task.estCompletion
     });
   });
 });
@@ -229,7 +233,7 @@ router.get("/api/task/:id", (req, res) => {
       ],
       raw: true
     }).then(users => {
-      scripts.push({ script: "/assets/js/task.js" });
+      scripts.push({ script: "/assets/js/users.js" });
       res.render("users", {
         title: "User List",
         loginoutlink: "/",
