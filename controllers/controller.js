@@ -45,8 +45,9 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/api/new", (req, res) => {
-  db.Task.create(req.body).then(dbTask => {
-    res.json(dbTask);
+  db.Task.create(req.body).then(newTask => {
+    console.log(req.body);
+    res.json(newTask);
   });
 });
 

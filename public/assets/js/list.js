@@ -5,6 +5,10 @@ $(document).ready(() => {
     $(".member-name").text(data.firstName);
   });
 
+  $("ul").on("click", () => {
+    $(location).attr("href", "/task/:id");
+  });
+
   fetcCityData();
   function fetcCityData() {
     $.ajax({
