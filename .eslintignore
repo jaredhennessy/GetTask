@@ -1,3 +1,5 @@
 config/config.js
 models/index.js
 node_modules
+public/assets/js/materialize.js
+public/assets/js/materialize.min.js

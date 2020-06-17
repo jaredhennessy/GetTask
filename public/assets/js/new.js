@@ -10,3 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const instances = M.Sidenav.init(elems);
   console.log(instances);
 });
+
+$(document).ready(() => {
+  $("input#input_text, textarea#textarea2").characterCounter();
+});
