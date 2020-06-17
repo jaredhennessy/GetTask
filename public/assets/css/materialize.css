@@ -4438,7 +4438,7 @@ nav .input-field input {
   padding-left: 2rem;
 }
 
-nav .input-field input:focus, nav .input-field input[type=text]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
+nav .input-field input:focus, nav .input-field input[type=text]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=first-name]:valid, nav .input-field input[type=last-name]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -6115,6 +6115,8 @@ label {
 input:not([type]),
 input[type=text]:not(.browser-default),
 input[type=password]:not(.browser-default),
+input[type=first-name]:not(.browser-default),
+input[type=last-name]:not(.browser-default),
 input[type=email]:not(.browser-default),
 input[type=url]:not(.browser-default),
 input[type=time]:not(.browser-default),
@@ -6150,6 +6152,10 @@ input[type=text]:not(.browser-default):disabled,
 input[type=text]:not(.browser-default)[readonly="readonly"],
 input[type=password]:not(.browser-default):disabled,
 input[type=password]:not(.browser-default)[readonly="readonly"],
+input[type=first-name]:not(.browser-default):disabled,
+input[type=first-name]:not(.browser-default)[readonly="readonly"],
+input[type=last-name]:not(.browser-default):disabled,
+input[type=last-name]:not(.browser-default)[readonly="readonly"],
 input[type=email]:not(.browser-default):disabled,
 input[type=email]:not(.browser-default)[readonly="readonly"],
 input[type=url]:not(.browser-default):disabled,
@@ -6180,6 +6186,10 @@ input[type=text]:not(.browser-default):disabled + label,
 input[type=text]:not(.browser-default)[readonly="readonly"] + label,
 input[type=password]:not(.browser-default):disabled + label,
 input[type=password]:not(.browser-default)[readonly="readonly"] + label,
+input[type=first-name]:not(.browser-default):disabled + label,
+input[type=first-name]:not(.browser-default)[readonly="readonly"] + label,
+input[type=last-name]:not(.browser-default):disabled + label,
+input[type=last-name]:not(.browser-default)[readonly="readonly"] + label,
 input[type=email]:not(.browser-default):disabled + label,
 input[type=email]:not(.browser-default)[readonly="readonly"] + label,
 input[type=url]:not(.browser-default):disabled + label,
@@ -6206,6 +6216,8 @@ textarea.materialize-textarea[readonly="readonly"] + label {
 input:not([type]):focus:not([readonly]),
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=first-name]:not(.browser-default):focus:not([readonly]),
+input[type=last-name]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=url]:not(.browser-default):focus:not([readonly]),
 input[type=time]:not(.browser-default):focus:not([readonly]),
@@ -6224,6 +6236,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
 input:not([type]):focus:not([readonly]) + label,
 input[type=text]:not(.browser-default):focus:not([readonly]) + label,
 input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+input[type=first-name]:not(.browser-default):focus:not([readonly]) + label,
+input[type=last-name]:not(.browser-default):focus:not([readonly]) + label,
 input[type=email]:not(.browser-default):focus:not([readonly]) + label,
 input[type=url]:not(.browser-default):focus:not([readonly]) + label,
 input[type=time]:not(.browser-default):focus:not([readonly]) + label,
@@ -6240,6 +6254,8 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 input:not([type]):focus.valid ~ label,
 input[type=text]:not(.browser-default):focus.valid ~ label,
 input[type=password]:not(.browser-default):focus.valid ~ label,
+input[type=first-name]:not(.browser-default):focus.valid ~ label,
+input[type=last-name]:not(.browser-default):focus.valid ~ label,
 input[type=email]:not(.browser-default):focus.valid ~ label,
 input[type=url]:not(.browser-default):focus.valid ~ label,
 input[type=time]:not(.browser-default):focus.valid ~ label,
@@ -6256,6 +6272,8 @@ textarea.materialize-textarea:focus.valid ~ label {
 input:not([type]):focus.invalid ~ label,
 input[type=text]:not(.browser-default):focus.invalid ~ label,
 input[type=password]:not(.browser-default):focus.invalid ~ label,
+input[type=first-name]:not(.browser-default):focus.invalid ~ label,
+input[type=last-name]:not(.browser-default):focus.invalid ~ label,
 input[type=email]:not(.browser-default):focus.invalid ~ label,
 input[type=url]:not(.browser-default):focus.invalid ~ label,
 input[type=time]:not(.browser-default):focus.invalid ~ label,
@@ -6272,6 +6290,8 @@ textarea.materialize-textarea:focus.invalid ~ label {
 input:not([type]).validate + label,
 input[type=text]:not(.browser-default).validate + label,
 input[type=password]:not(.browser-default).validate + label,
+input[type=first-name]:not(.browser-default).validate + label,
+input[type=last-name]:not(.browser-default).validate + label,
 input[type=email]:not(.browser-default).validate + label,
 input[type=url]:not(.browser-default).validate + label,
 input[type=time]:not(.browser-default).validate + label,
@@ -6291,6 +6311,10 @@ input[type=text].valid:not(.browser-default),
 input[type=text].valid:not(.browser-default):focus,
 input[type=password].valid:not(.browser-default),
 input[type=password].valid:not(.browser-default):focus,
+input[type=first-name].valid:not(.browser-default),
+input[type=first-name].valid:not(.browser-default):focus,
+input[type=last-name].valid:not(.browser-default),
+input[type=last-name].valid:not(.browser-default):focus,
 input[type=email].valid:not(.browser-default),
 input[type=email].valid:not(.browser-default):focus,
 input[type=url].valid:not(.browser-default),
@@ -6321,6 +6345,10 @@ input[type=text].invalid:not(.browser-default),
 input[type=text].invalid:not(.browser-default):focus,
 input[type=password].invalid:not(.browser-default),
 input[type=password].invalid:not(.browser-default):focus,
+input[type=first-name].invalid:not(.browser-default),
+input[type=first-name].invalid:not(.browser-default):focus,
+input[type=last-name].invalid:not(.browser-default),
+input[type=last-name].invalid:not(.browser-default):focus,
 input[type=email].invalid:not(.browser-default),
 input[type=email].invalid:not(.browser-default):focus,
 input[type=url].invalid:not(.browser-default),
@@ -6359,6 +6387,14 @@ input[type=password]:not(.browser-default).valid ~ .helper-text[data-success],
 input[type=password]:not(.browser-default):focus.valid ~ .helper-text[data-success],
 input[type=password]:not(.browser-default).invalid ~ .helper-text[data-error],
 input[type=password]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+input[type=first-name]:not(.browser-default).valid ~ .helper-text[data-success],
+input[type=first-name]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+input[type=first-name]:not(.browser-default).invalid ~ .helper-text[data-error],
+input[type=first-name]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+input[type=last-name]:not(.browser-default).valid ~ .helper-text[data-success],
+input[type=last-name]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+input[type=last-name]:not(.browser-default).invalid ~ .helper-text[data-error],
+input[type=last-name]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
 input[type=email]:not(.browser-default).valid ~ .helper-text[data-success],
 input[type=email]:not(.browser-default):focus.valid ~ .helper-text[data-success],
 input[type=email]:not(.browser-default).invalid ~ .helper-text[data-error],
@@ -6414,6 +6450,10 @@ input[type=text]:not(.browser-default).valid ~ .helper-text:after,
 input[type=text]:not(.browser-default):focus.valid ~ .helper-text:after,
 input[type=password]:not(.browser-default).valid ~ .helper-text:after,
 input[type=password]:not(.browser-default):focus.valid ~ .helper-text:after,
+input[type=first-name]:not(.browser-default).valid ~ .helper-text:after,
+input[type=first-name]:not(.browser-default):focus.valid ~ .helper-text:after,
+input[type=last-name]:not(.browser-default).valid ~ .helper-text:after,
+input[type=last-name]:not(.browser-default):focus.valid ~ .helper-text:after,
 input[type=email]:not(.browser-default).valid ~ .helper-text:after,
 input[type=email]:not(.browser-default):focus.valid ~ .helper-text:after,
 input[type=url]:not(.browser-default).valid ~ .helper-text:after,
@@ -6444,6 +6484,10 @@ input[type=text]:not(.browser-default).invalid ~ .helper-text:after,
 input[type=text]:not(.browser-default):focus.invalid ~ .helper-text:after,
 input[type=password]:not(.browser-default).invalid ~ .helper-text:after,
 input[type=password]:not(.browser-default):focus.invalid ~ .helper-text:after,
+input[type=first-name]:not(.browser-default).invalid ~ .helper-text:after,
+input[type=first-name]:not(.browser-default):focus.invalid ~ .helper-text:after,
+input[type=last-name]:not(.browser-default).invalid ~ .helper-text:after,
+input[type=last-name]:not(.browser-default):focus.invalid ~ .helper-text:after,
 input[type=email]:not(.browser-default).invalid ~ .helper-text:after,
 input[type=email]:not(.browser-default):focus.invalid ~ .helper-text:after,
 input[type=url]:not(.browser-default).invalid ~ .helper-text:after,
@@ -6471,6 +6515,8 @@ textarea.materialize-textarea:focus.invalid ~ .helper-text:after, .select-wrappe
 input:not([type]) + label:after,
 input[type=text]:not(.browser-default) + label:after,
 input[type=password]:not(.browser-default) + label:after,
+input[type=first-name]:not(.browser-default) + label:after,
+input[type=last-name]:not(.browser-default) + label:after,
 input[type=email]:not(.browser-default) + label:after,
 input[type=url]:not(.browser-default) + label:after,
 input[type=time]:not(.browser-default) + label:after,
@@ -8477,10 +8523,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8533,10 +8588,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 
