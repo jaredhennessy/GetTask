@@ -53,6 +53,7 @@ $(document).ready(() => {
         taskId
     };
     updateTask(updTask);
+    event.stopPropagation();
   });
 
   $("#btnAssign").on("click", () => {
@@ -71,6 +72,7 @@ $(document).ready(() => {
         taskId
     };
     updateTask(updTask);
+    event.stopPropagation();
   });
 
   $("#btnComplete").on("click", () => {
@@ -89,6 +91,7 @@ $(document).ready(() => {
         taskId
     };
     updateTask(updTask);
+    event.stopPropagation();
   });
 
   function updateTask(taskData) {
@@ -103,6 +106,5 @@ $(document).ready(() => {
         location.reload();
       }
     });
-    event.stopImmediatePropagation();
   }
 });

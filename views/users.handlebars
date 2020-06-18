@@ -17,8 +17,8 @@
         <ul class="collection">
           {{#each users}}
           <li class="collection-item avatar">
-            <i class="material-icons circle"></i>
-            <p>{{this.firstName}} {{this.lastName}}<br>
+            <i class="material-icons circle {{this.color}}"></i>
+            <p>{{this.firstName}} {{this.lastName}} {{this.color}}<br>
               <img src="{{this.badgeUrl}}" alt="Completed Tasks: >{{this.TicketsAssignedclosed}}"
                 title="Completed Tasks: >{{this.TicketsAssignedclosed}}" />
             </p>

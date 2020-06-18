@@ -36,7 +36,7 @@
           {{#each tasks}}
           {{#unless completed}}
           <li class="collection-item avatar" data-id="{{this.id}}">
-            <i class="material-icons circle teal"></i>
+            <i class="material-icons circle {{this.[assignee.color]}}"></i>
             <div class="row">
               <div class="col s12 m8">
                 <p>{{this.title}}</p>
