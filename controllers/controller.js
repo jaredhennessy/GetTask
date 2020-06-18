@@ -47,10 +47,18 @@ router.get("/new", isAuthenticated, (req, res) => {
 });
 
 router.post("/api/new", (req, res) => {
-  db.Task.create(req.body).then(newTask => {
-    // console.log(req.body);
-    res.json(newTask);
-  });
+  db.Task.create({
+    title: req.body.title,
+    description: req.body.description,
+    creatorId: req.body.creatorId
+  })
+    .then(newTask => {
+      // console.log(newTask);
+      res.json(newTask);
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
 });
 
 router.get("/list", isAuthenticated, (req, res) => {

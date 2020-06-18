@@ -30,10 +30,12 @@ $(document).ready(() => {
   });
 
   $("#btnBack").on("click", () => {
+    event.preventDefault();
     $(location).attr("href", "/list");
   });
 
   $("#estDate").on("submit", () => {
+    event.preventDefault();
     const newDate = $("#formDate").val();
     console.log("click");
     console.log(newDate);
@@ -54,6 +56,7 @@ $(document).ready(() => {
   });
 
   $("#btnAssign").on("click", () => {
+    event.preventDefault();
     const updTask = {
       id: taskId,
       assigneeId: userId,
@@ -71,6 +74,7 @@ $(document).ready(() => {
   });
 
   $("#btnComplete").on("click", () => {
+    event.preventDefault();
     const updTask = {
       id: taskId,
       complete: true,
