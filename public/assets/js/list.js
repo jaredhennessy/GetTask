@@ -7,8 +7,9 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", event => {
     event.preventDefault();
-    const taskId = event.currentTarget.children[1].firstChild.textContent;
-    $(location).attr("href", "/task/" + taskId);
+    console.log(event.currentTarget.children)
+    // const taskId = event.currentTarget.children[1].firstChild.textContent;
+    // $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnNew").on("click", () => {
