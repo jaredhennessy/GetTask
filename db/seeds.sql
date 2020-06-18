@@ -7,10 +7,10 @@ drop table Users;
 */
 
 DELETE FROM Users WHERE firstName NOT IN ('Jared','Alyssa','Daniel','Tyler','Steve');
-INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Steve','Customer','jared.hennessy+cust@gmail.com','password1234',CURDATE(),CURDATE());
-INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Daniel','Villarroel','jared.hennessy+dv@gmail.com','password5678',CURDATE(),CURDATE());
-INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Alyssa','Hellrung','jared.hennessy+ah@gmail.com','password5678',CURDATE(),CURDATE());
-INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Tyler','McBride','jared.hennessy+tm@gmail.com','password5678',CURDATE(),CURDATE());
+-- INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Steve','Customer','jared.hennessy+cust@gmail.com','password1234',CURDATE(),CURDATE());
+-- INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Daniel','Villarroel','jared.hennessy+dv@gmail.com','password5678',CURDATE(),CURDATE());
+-- INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Alyssa','Hellrung','jared.hennessy+ah@gmail.com','password5678',CURDATE(),CURDATE());
+-- INSERT Users (firstName, lastName, email, password, createdAt, updatedAt) VALUES ('Tyler','McBride','jared.hennessy+tm@gmail.com','password5678',CURDATE(),CURDATE());
 
 UPDATE Users
 -- SET color = 'teal';
