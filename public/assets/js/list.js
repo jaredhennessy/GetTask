@@ -7,6 +7,10 @@ $(document).ready(() => {
     userId = data.id;
   });
 
+  $("#logo-container").on("click", event => {
+    $(location).attr("href", "/");
+  });
+
   $(".collection-item").on("click", event => {
     event.preventDefault();
     const taskId =
