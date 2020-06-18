@@ -9,13 +9,8 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", event => {
     event.preventDefault();
-
-    console.log(
-      event.currentTarget.children[1].children[1].children[0].firstChild
-        .textContent
-    );
-    // const taskId = event.currentTarget.children[1].firstChild.textContent;
-    // $(location).attr("href", "/task/" + taskId);
+    const taskId = event.currentTarget.children[1].children[1].children[0].firstChild.textContent;
+    $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnAll").on("click", () => {
