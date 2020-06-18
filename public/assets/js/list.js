@@ -5,9 +5,10 @@ $(document).ready(() => {
     $(".member-name").text(data.firstName);
   });
 
-  $(".collection-item").on("click", (event) => {
+  $(".collection-item").on("click", event => {
     event.preventDefault();
-    const taskId = $(this).data("id");
+    // const taskId = $(this).data("id");
+    const taskId = $("#task-id").text();
     const taskId2 = $(this);
     console.log(taskId2);
     console.log(taskId);

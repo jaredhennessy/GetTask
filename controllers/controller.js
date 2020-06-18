@@ -5,7 +5,6 @@ const transporter = require("../config/nodemailer.js");
 
 const scripts = [
   { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-  // { script: "https://code.jquery.com/jquery.js" },
   { script: "../assets/js/materialize.js" }
 ];
 
