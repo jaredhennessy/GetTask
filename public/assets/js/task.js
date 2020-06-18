@@ -97,8 +97,11 @@ $(document).ready(() => {
       url: "/api/task",
       data: taskData
     }).then(() => {
-      location.reload();
-      // window.location.replace("/list");
+      if (taskData.complete === true) {
+        window.location.replace("/list");
+      } else {
+        location.reload();
+      }
     });
     event.stopImmediatePropagation();
   }

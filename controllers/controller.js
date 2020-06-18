@@ -174,9 +174,11 @@ router.get("/task/:id", (req, res) => {
       taskTitle: task.title,
       taskDesc: task.description,
       estCompletion: task.estCompletion,
-      assignee: task["assignee.firstName"] + " " + task["assignee.lastName"],
+      assigneeFirstName: task["assignee.firstName"],
+      assigneeLastName: task["assignee.lastName"],
       assigneeEmail: task["assignee.email"],
-      creator: task["creator.firstName"] + " " + task["creator.lastName"],
+      creatorFirstName: task["creator.firstName"],
+      creatorLastName: task["creator.lastName"],
       creatorEmail: task["creator.email"]
     });
   });
