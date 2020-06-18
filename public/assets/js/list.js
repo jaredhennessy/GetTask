@@ -10,7 +10,7 @@ $(document).ready(() => {
 
     console.log(event.currentTarget.p);
     console.log(event.currentTarget[0]);
-    console.log(event.currentTarget);
+    console.log(event.target);
 
     // const taskId = $(this).data("id");
     // const taskId = $("#task-id").text();
