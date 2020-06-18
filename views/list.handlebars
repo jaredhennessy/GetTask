@@ -35,15 +35,24 @@
         <ul class="collection">
           {{#each tasks}}
           {{#unless completed}}
-          <li class="collection-item avatar" data-id="{{this.id}}">
-            <i class="material-icons circle"></i>
-            <p><span id="task-id">{{this.id}}</span><br>
-              {{this.title}} <br>
-            </p>
-            <p class="secondary-content">
-              Completion date: {{this.estCompletion}}
-            </p>
-            <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+            <li class="collection-item avatar" data-id="{{this.id}}">
+                        <i class="material-icons circle"></i>
+                      <div class="row">
+                        <div class="col s12 m8">
+                            <p>{{this.title}}</p>
+                        </div>
+                        <div class="col s12 m4">
+                            <p class="secondary-content"><span id="task-id">{{this.id}}</span></p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col s12 m8">
+                            <p>{{this.[assignee.firstName]}} {{this.[assignee.lastName]}}</p>
+                        </div>
+                        <div class="col s12 m4">
+                            <p>{{this.estCompletion}}</p>
+                        </div>
+                      </div>
           </li>
           {{/unless}}
           {{/each}}
