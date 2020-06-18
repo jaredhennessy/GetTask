@@ -10,6 +10,7 @@ $(document).ready(() => {
     console.log(event);
     console.log(event.target);
     let taskId = $(this).data("id");
+    console.log(taskId);
     $(location).attr("href", "/task/" + taskId);
   });
 
