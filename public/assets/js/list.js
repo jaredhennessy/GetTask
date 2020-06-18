@@ -5,7 +5,7 @@ $(document).ready(() => {
     $(".member-name").text(data.firstName);
   });
 
-  $("li").on("click", (event) => {
+  $(".collection-item").on("click", (event) => {
     event.preventDefault();
     console.log(event);
     console.log(event.target);
