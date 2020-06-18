@@ -35,18 +35,18 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/new", isAuthenticated, (req, res) => {
-  if (req.user) {
-    scripts.push({ script: "../assets/js/new.js" });
-    res.render("new", {
-      title: "New Task",
-      loginoutLink: "/",
-      loginoutText: "Logout",
-      listText: "Tasks",
-      userText: "Users",
-      scripts: scripts
-    });
-  }
-  res.render("index");
+  // if (req.user) {
+  scripts.push({ script: "../assets/js/new.js" });
+  res.render("new", {
+    title: "New Task",
+    loginoutLink: "/",
+    loginoutText: "Logout",
+    listText: "Tasks",
+    userText: "Users",
+    scripts: scripts
+  });
+  // }
+  // res.render("index");
 });
 
 router.post("/api/new", (req, res) => {
