@@ -7,10 +7,12 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", (event) => {
     event.preventDefault();
+    let taskId = $(this).data("id");
+    let taskId2 = $(this)
+    console.log(taskId2);
+    console.log(taskId);
     console.log(event);
     console.log(event.target);
-    let taskId = $(this).data("id");
-    console.log(taskId);
     $(location).attr("href", "/task/" + taskId);
   });
 
