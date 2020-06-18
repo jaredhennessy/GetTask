@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const transporter = require("../config/nodemailer.js");
 
 const scripts = [
   { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
@@ -168,6 +169,22 @@ router.get("/task/:id", (req, res) => {
 
 router.put("/api/task/", (req, res) => {
   console.log(req.body);
+
+  const mailOptions = {
+    from: "GetTask2020@gmail.com",
+    to: req.body.creatorEmail,
+    subject: req.body.subject,
+    text: req.body.text
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+
   db.Task.update(req.body, {
     where: {
       id: req.body.id

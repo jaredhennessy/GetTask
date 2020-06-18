@@ -8,6 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
 $(document).ready(() => {
   const taskId = $("#taskId").text();
   let userId;
+  let taskTitle;
+  let creatorFirstName;
+  // let creatorLastName;
+
+  $.get("/api/task/" + taskId)
+    .then(task => {
+      taskTitle = task.title;
+      creatorFirstName = task["creator.firstName"];
+      // creatorLastName = task["creator.lastName"];
+      creatorEmail = task["creator.email"];
+    })
+    .then(() => {
+      // console.log(creatorFirstName);
+      // console.log(creatorLastName);
+      // console.log(creatorEmail);
+      $("formDate").datepicker("setDate", estCompletion);
+    });
 
   $.get("/api/user_data").then(data => {
     userId = data.id;
@@ -21,32 +38,55 @@ $(document).ready(() => {
     const newDate = $("#formDate").val();
     const updTask = {
       id: taskId,
-      estCompletion: newDate
+      estCompletion: newDate,
+      creatorEmail: creatorEmail,
+      subject: "GetTask: '" + taskTitle + "' updated",
+      text:
+        "Hello " +
+        creatorFirstName +
+        "! Task " +
+        taskId +
+        " has been updated. Click here for details: https://calm-scrubland-27592.herokuapp.com/task/" +
+        taskId
     };
-    console.log(updTask);
     updateTask(updTask);
   });
 
   $("#btnAssign").on("click", () => {
     const updTask = {
       id: taskId,
-      assigneeId: userId
+      assigneeId: userId,
+      creatorEmail: creatorEmail,
+      subject: "GetTask: '" + taskTitle + "' updated",
+      text:
+        "Hello " +
+        creatorFirstName +
+        "! Task " +
+        taskId +
+        " has been assigned. Click here for details: https://calm-scrubland-27592.herokuapp.com/task/" +
+        taskId
     };
-    console.log(updTask);
     updateTask(updTask);
   });
 
   $("#btnComplete").on("click", () => {
     const updTask = {
       id: taskId,
-      complete: true
+      complete: true,
+      creatorEmail: creatorEmail,
+      subject: "GetTask: '" + taskTitle + "' updated",
+      text:
+        "Hello " +
+        creatorFirstName +
+        "! Task " +
+        taskId +
+        " has been completed. Click here for details: https://calm-scrubland-27592.herokuapp.com/task/" +
+        taskId
     };
-    console.log(updTask);
     updateTask(updTask);
   });
 
   function updateTask(taskData) {
-    console.log(taskData);
     $.ajax({
       method: "PUT",
       url: "/api/task",
