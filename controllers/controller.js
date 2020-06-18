@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const transporter = require("../config/nodemailer.js");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 const scripts = [
   { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
@@ -34,16 +35,19 @@ router.get("/signup", (req, res) => {
   });
 });
 
-router.get("/new", (req, res) => {
-  scripts.push({ script: "../assets/js/new.js" });
-  res.render("new", {
-    title: "New Task",
-    loginoutLink: "/",
-    loginoutText: "Logout",
-    listText: "Tasks",
-    userText: "Users",
-    scripts: scripts
-  });
+router.get("/new", isAuthenticated, (req, res) => {
+  if (req.user) {
+    scripts.push({ script: "../assets/js/new.js" });
+    res.render("new", {
+      title: "New Task",
+      loginoutLink: "/",
+      loginoutText: "Logout",
+      listText: "Tasks",
+      userText: "Users",
+      scripts: scripts
+    });
+  }
+  res.render("index");
 });
 
 router.post("/api/new", (req, res) => {
