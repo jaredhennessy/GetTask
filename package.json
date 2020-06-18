@@ -1,5 +1,5 @@
 {
-  "name": "1-Passport-Example",
+  "name": "gettask",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -15,11 +15,15 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.0",
+    "express-handlebars": "^4.0.4",
     "express-session": "^1.16.1",
     "mysql2": "^1.6.5",
+    "nodemailer": "^6.4.10",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "sequelize": "^5.8.6"
   },
   "devDependencies": {
@@ -27,8 +31,8 @@
     "chai-http": "^4.0.0",
     "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-prettier": "^2.7.0",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   }

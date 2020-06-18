@@ -29,11 +29,18 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/members");
+        window.location.replace("/list");
         // If there's an error, log the error
       })
       .catch(err => {
         console.log(err);
       });
   }
+});
+
+//=================SideNav trigger=================//
+document.addEventListener("DOMContentLoaded", () => {
+  const elems = document.querySelectorAll(".sidenav");
+  const instances = M.Sidenav.init(elems);
+  console.log(instances);
 });

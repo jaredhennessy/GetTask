@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h4>Welcome <span class="member-name"></span>,</h4>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 m2">
+      </div>
+      <div class="col s12 m8">
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>TaskList</h5>
+          </div>
+        </div>
+        </br>
+        <div class="row">
+          <div class="col s12 m3">
+            <button type="submit" id="btnAll" class="btn btn-small">All Tasks</button>
+          </div>
+          <div class="col s12 m3">
+            <button type="submit" id="btnMe" class="btn btn-small">My Tasks</button>
+          </div>
+          <div class="col s12 m4">
+            <button type="submit" id="btnNone" class="btn btn-small">Unassigned</button>
+          </div>
+          <div class="col s12 m2">
+            <a id="btnNew" class="btn-floating btn-large waves-effect waves-light teal"><i
+                class="material-icons">add</i></a>
+          </div>
+        </div>
+        <ul class="collection">
+          {{#each tasks}}
+          {{#unless completed}}
+          <li class="collection-item avatar" data-id="{{this.id}}">
+            <i class="material-icons circle"></i>
+            <div class="row">
+              <div class="col s12 m8">
+                <p>{{this.title}}</p>
+              </div>
+              <div class="col s12 m4">
+                <p class="secondary-content"><span id="task-id">{{this.id}}</span></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m8">
+                <p>Assigned: {{this.[assignee.firstName]}} {{this.[assignee.lastName]}}</p>
+              </div>
+              <div class="col s12 m4">
+                <p>Est. Completion: {{this.estCompletion}}</p>
+              </div>
+            </div>
+          </li>
+          {{/unless}}
+          {{/each}}
+        </ul>
+        </br>
+        </br>
+      </div>
+      <div class="col s12 m2">
+      </div>
+    </div>
+  </div>
+</div>
