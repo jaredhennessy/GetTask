@@ -34,8 +34,7 @@ SO THAT we can stay efficient and organized when working on projects.
 ## Technologies Used  
 Built in Visual Studio using MVC paradigm with            
 HTML          
-CSS       
-SASS   
+CSS         
 Javascript
 jQuery          
 Node.js        
