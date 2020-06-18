@@ -33,8 +33,10 @@ $(document).ready(() => {
     $(location).attr("href", "/list");
   });
 
-  $("#btnSave").on("click", () => {
+  $("#estDate").on("submit", () => {
     const newDate = $("#formDate").val();
+    console.log("click");
+    console.log(newDate);
     const updTask = {
       id: taskId,
       estCompletion: newDate,
