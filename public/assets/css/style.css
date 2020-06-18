@@ -51,6 +51,17 @@ p {
   #index-banner .section {
     top: 0;
   }
+  h1{
+    font-size: 2.75rem;
+    line-height: 60%;
+  }
+  h4{
+    font-size: 1.5rem;
+    line-height: 70%;
+  }
+  h5{
+    font-size: 1.2rem;
+  }
 }
 
 .icon-block {
