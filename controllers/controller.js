@@ -47,13 +47,14 @@ router.get("/new", isAuthenticated, (req, res) => {
 });
 
 router.post("/api/new", (req, res) => {
+  console.log("router.post: new");
   db.Task.create({
     title: req.body.title,
     description: req.body.description,
     creatorId: req.body.creatorId
   })
-    .then(newTask => {
-      console.log(newTask);
+    .then(result => {
+      console.log(result.id);
       // res.json(newTask);
       res.json(200);
     })

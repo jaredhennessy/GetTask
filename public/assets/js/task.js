@@ -97,7 +97,9 @@ $(document).ready(() => {
       url: "/api/task",
       data: taskData
     }).then(() => {
-      window.location.replace("/list");
+      location.reload();
+      // window.location.replace("/list");
     });
+    event.stopImmediatePropagation();
   }
 });
