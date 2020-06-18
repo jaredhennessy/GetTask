@@ -46,7 +46,7 @@ module.exports = function(app) {
         firstName: req.user.firstName,
         lastName: req.user.lastName,
         email: req.user.email,
-        taskpoints: req.user.taskpoints
+        id: req.user.id
       });
     }
   });

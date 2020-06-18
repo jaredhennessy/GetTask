@@ -7,28 +7,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 $(document).ready(() => {
   $("input#input_text, textarea#textarea2").characterCounter();
-});
 
-$(() => {
-  $("#newTask").on("submit", event => {
-    event.preventDefault();
-    const taskTitle = $("#title")
-      .val()
-      .trim();
-    const taskDesc = $("#desc")
-      .val()
-      .trim();
+  let userId;
 
-    const newTask = {
-      title: taskTitle,
-      description: taskDesc
-    };
+  $.get("/api/user_data").then(data => {
+    userId = data.id;
+  });
 
-    $.ajax("/api/new", {
-      type: "POST",
-      data: newTask
-    }).then(() => {
-      window.location.replace("/list");
+  $(() => {
+    $("#newTask").on("submit", event => {
+      event.preventDefault();
+
+      const taskTitle = $("#title")
+        .val()
+        .trim();
+      const taskDesc = $("#desc")
+        .val()
+        .trim();
+
+      const newTask = {
+        title: taskTitle,
+        description: taskDesc,
+        creatorId: userId
+      };
+
+      $.ajax("/api/new", {
+        type: "POST",
+        data: newTask
+      }).then(() => {
+        window.location.replace("/list");
+      });
     });
   });
 });

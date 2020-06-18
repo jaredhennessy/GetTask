@@ -4,7 +4,7 @@
       <div class="col s12 m2">
       </div>
       <div class="col s12 m8">
-        <h5>Task # {{id}} - {{taskTitle}}</h5>
+        <h5>Task # <span id="taskId">{{id}}</span> - {{taskTitle}}</h5>
         </br>
         </br>
         <div class="row">
@@ -14,10 +14,10 @@
             </div>
             <div class="col s1"></div>
             <div class="col s2">
-              <form class="col s12"></form>
-              <h6>Estimated Completion Time:</h6>
-              <input type="text" class="datepicker" placeholder="{{estCompletion}}">
-              <button id="btnSave" class="btn waves-effect waves-light" type="submit">Save</button>
+              <form id="estDate" class="col s12">
+                <h6>Estimated Completion Time:</h6>
+                <input id="formDate" type="text" class="datepicker" dateFormat: "d M yy" value={{estCompletion}}>
+                <button id=" btnSave" class="btn waves-effect waves-light" type="submit">Save</button>
               </form>
             </div>
           </div>

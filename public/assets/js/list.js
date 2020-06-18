@@ -5,26 +5,27 @@ $(document).ready(() => {
     $(".member-name").text(data.firstName);
   });
 
-  $("ul").on("click", () => {
-    const taskID = $("#task-id").text();
-    $(location).attr("href", "/task/" + taskID);
+  $("li").on("click", () => {
+    let taskId = $(this).data("id");
+    console.log($(this));
+    $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnNew").on("click", () => {
     $(location).attr("href", "/new");
   });
 
-  fetcCityData();
-  function fetcCityData() {
-    $.ajax({
-      url: "https://geolocation-db.com/jsonp",
-      jsonpCallback: "callback",
-      dataType: "jsonp",
-      success: function(location) {
-        console.log(location);
-      }
-    });
-  }
+  // fetcCityData();
+  // function fetcCityData() {
+  //   $.ajax({
+  //     url: "https://geolocation-db.com/jsonp",
+  //     jsonpCallback: "callback",
+  //     dataType: "jsonp",
+  //     success: function(location) {
+  //       console.log(location);
+  //     }
+  //   });
+  // }
 });
 
 //=================SideNav trigger=================//
