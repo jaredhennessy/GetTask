@@ -47,17 +47,33 @@ router.get("/new", isAuthenticated, (req, res) => {
 });
 
 router.post("/api/new", (req, res) => {
-  db.Task.create(req.body).then(newTask => {
-    // console.log(req.body);
-    res.json(newTask);
-  });
+  db.Task.create({
+    title: req.body.title,
+    description: req.body.description,
+    creatorId: req.body.creatorId
+  })
+    .then(newTask => {
+      console.log(newTask);
+      // res.json(newTask);
+      res.json(200);
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
 });
 
-router.get("/list", isAuthenticated, (req, res) => {
+router.get("/list/:filter?", isAuthenticated, (req, res) => {
+  let whereClause;
+  if ((req.params.filter = "none")) {
+    whereClause = { complete: false, assigneeId: null };
+  } else if ((req.params.filter = "all" || !filter)) {
+    whereClause = { complete: false };
+  } else {
+    whereClause = { complete: false, assigneeId: req.params.filter };
+  }
+
   db.Task.findAll({
-    where: {
-      complete: false
-    },
+    where: whereClause,
     include: [
       {
         model: db.User,
@@ -85,34 +101,41 @@ router.get("/list", isAuthenticated, (req, res) => {
   });
 });
 
-router.get("/api/list/:id", (req, res) => {
-  db.Task.findOne({
-    where: {
-      id: req.params.id
-    },
-    include: [
-      {
-        model: db.User,
-        as: "assignee",
-        attributes: ["firstName", "lastName", "email"]
-      },
-      {
-        model: db.User,
-        as: "creator",
-        attributes: ["firstName", "lastName", "email"]
-      }
-    ],
-    raw: true
-  }).then(dbTask => {
-    res.json(dbTask);
-  });
-});
+// router.get("/api/list/:id", isAuthenticated, (req, res) => {
+//   db.Task.findOne({
+//     where: {
+//       id: req.params.id
+//     },
+//     include: [
+//       {
+//         model: db.User,
+//         as: "assignee",
+//         attributes: ["firstName", "lastName", "email"]
+//       },
+//       {
+//         model: db.User,
+//         as: "creator",
+//         attributes: ["firstName", "lastName", "email"]
+//       }
+//     ],
+//     raw: true
+//   }).then(dbTask => {
+//     res.json(dbTask);
+//   });
+// });
 
-router.get("/api/list", (req, res) => {
+router.get("/api/list/:filter?", isAuthenticated, (req, res) => {
+  let whereClause;
+  if ((req.params.filter = "none")) {
+    whereClause = { complete: false, assigneeId: null };
+  } else if ((req.params.filter = "all" || !filter)) {
+    whereClause = { complete: false };
+  } else {
+    whereClause = { complete: false, assigneeId: req.params.filter };
+  }
+
   db.Task.findAll({
-    where: {
-      complete: false
-    },
+    where: whereClause,
     include: [
       {
         model: db.User,
@@ -217,12 +240,12 @@ router.get("/api/task/:id", (req, res) => {
   });
 });
 
+const strQuery =
+  "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));";
+
 router.get("/users", isAuthenticated, (req, res) => {
   db.sequelize
-    .query(
-      "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));",
-      { type: db.sequelize.QueryTypes.SELECT }
-    )
+    .query(strQuery, { type: db.sequelize.QueryTypes.SELECT })
     .then(users => {
       scripts.push({ script: "../assets/js/users.js" });
       res.render("users", {
@@ -237,12 +260,9 @@ router.get("/users", isAuthenticated, (req, res) => {
     });
 });
 
-router.get("/api/users", (req, res) => {
+router.get("/api/users", isAuthenticated, (req, res) => {
   db.sequelize
-    .query(
-      "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));",
-      { type: db.sequelize.QueryTypes.SELECT }
-    )
+    .query(strQuery, { type: db.sequelize.QueryTypes.SELECT })
     .then(dbTask => {
       res.json(dbTask);
     });
