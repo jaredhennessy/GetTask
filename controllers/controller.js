@@ -75,6 +75,10 @@ router.get("/list/:filter?", isAuthenticated, (req, res) => {
 
   db.Task.findAll({
     where: whereClause,
+    order: [
+      ["estCompletion", "ASC"],
+      ["createdAt", "ASC"]
+    ],
     include: [
       {
         model: db.User,
@@ -102,29 +106,6 @@ router.get("/list/:filter?", isAuthenticated, (req, res) => {
   });
 });
 
-// router.get("/api/list/:id", isAuthenticated, (req, res) => {
-//   db.Task.findOne({
-//     where: {
-//       id: req.params.id
-//     },
-//     include: [
-//       {
-//         model: db.User,
-//         as: "assignee",
-//         attributes: ["firstName", "lastName", "email"]
-//       },
-//       {
-//         model: db.User,
-//         as: "creator",
-//         attributes: ["firstName", "lastName", "email"]
-//       }
-//     ],
-//     raw: true
-//   }).then(dbTask => {
-//     res.json(dbTask);
-//   });
-// });
-
 router.get("/api/list/:filter?", isAuthenticated, (req, res) => {
   let whereClause;
   const filter = req.params.filter;
@@ -138,6 +119,10 @@ router.get("/api/list/:filter?", isAuthenticated, (req, res) => {
 
   db.Task.findAll({
     where: whereClause,
+    order: [
+      ["estCompletion", "ASC"],
+      ["createdAt", "ASC"]
+    ],
     include: [
       {
         model: db.User,
