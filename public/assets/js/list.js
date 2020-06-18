@@ -7,14 +7,15 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", event => {
     event.preventDefault();
-
-    console.log(event.currentTarget.data);
-    console.log(event.currentTarget);
-
-    // const taskId = $(this).data("id");
+    // console.log(event.currentTarget.children[1]);
+    // console.log(event.currentTarget.childNodes[3]);
+    console.log(event.currentTarget.children[1].firstChild.textContent);
+    // console.log(event.currentTarget.childNodes[3].firstChild.value);
+    // console.log(event);
+    const taskId = event.currentTarget.children[1].firstChild.textContent;
     // const taskId = $("#task-id").text();
     // const taskId2 = $(this);
-    // $(location).attr("href", "/task/" + taskId);
+    $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnNew").on("click", () => {
