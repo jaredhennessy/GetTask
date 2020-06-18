@@ -19,13 +19,13 @@
         </br>
         <div class="row">
           <div class="col s12 m3">
-            <button type="submit" class="btn btn-small">All Tasks</button>
+            <button type="submit" id="btnAll" class="btn btn-small">All Tasks</button>
           </div>
           <div class="col s12 m3">
-            <button type="submit" class="btn btn-small">My Tasks</button>
+            <button type="submit" id="btnMe" class="btn btn-small">My Tasks</button>
           </div>
           <div class="col s12 m4">
-            <button type="submit" class="btn btn-small">Unassigned</button>
+            <button type="submit" id="btnNone" class="btn btn-small">Unassigned</button>
           </div>
           <div class="col s12 m2">
             <a id="btnNew" class="btn-floating btn-large waves-effect waves-light teal"><i
@@ -35,24 +35,24 @@
         <ul class="collection">
           {{#each tasks}}
           {{#unless completed}}
-            <li class="collection-item avatar" data-id="{{this.id}}">
-                        <i class="material-icons circle"></i>
-                      <div class="row">
-                        <div class="col s12 m8">
-                            <p>{{this.title}}</p>
-                        </div>
-                        <div class="col s12 m4">
-                            <p class="secondary-content"><span id="task-id">{{this.id}}</span></p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col s12 m8">
-                            <p>{{this.[assignee.firstName]}} {{this.[assignee.lastName]}}</p>
-                        </div>
-                        <div class="col s12 m4">
-                            <p>{{this.estCompletion}}</p>
-                        </div>
-                      </div>
+          <li class="collection-item avatar" data-id="{{this.id}}">
+            <i class="material-icons circle"></i>
+            <div class="row">
+              <div class="col s12 m8">
+                <p>{{this.title}}</p>
+              </div>
+              <div class="col s12 m4">
+                <p class="secondary-content"><span id="task-id">{{this.id}}</span></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m8">
+                <p>{{this.[assignee.firstName]}} {{this.[assignee.lastName]}}</p>
+              </div>
+              <div class="col s12 m4">
+                <p>{{this.estCompletion}}</p>
+              </div>
+            </div>
           </li>
           {{/unless}}
           {{/each}}
