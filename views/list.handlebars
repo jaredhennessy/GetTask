@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h4>Welcome <span class="member-name"></span>,</h4>
+      <h4>Welcome, <span class="member-name"></span>!</h4>
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
           {{#each tasks}}
           {{#unless completed}}
           <li class="collection-item avatar" data-id="{{this.id}}">
-            <i class="material-icons circle"></i>
+            <i class="material-icons circle {{this.[assignee.color]}}"></i>
             <div class="row">
               <div class="col s12 m8">
                 <p>{{this.title}}</p>
@@ -50,7 +50,7 @@
                 <p>Assigned: {{this.[assignee.firstName]}} {{this.[assignee.lastName]}}</p>
               </div>
               <div class="col s12 m4">
-                <p>Est. Completion: {{this.estCompletion}}</p>
+                <p>Due: {{this.estCompletion}}</p>
               </div>
             </div>
           </li>
