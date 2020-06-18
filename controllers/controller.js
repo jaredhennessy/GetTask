@@ -4,12 +4,7 @@ const db = require("../models");
 const transporter = require("../config/nodemailer.js");
 
 const scripts = [
-<<<<<<< HEAD
   { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-=======
-  { script: "https://code.jquery.com/jquery-3.4.1.min.js" },
-  // { script: "https://code.jquery.com/jquery.js" },
->>>>>>> e9f5c545a68d44426bef078641775c3f1e63df88
   { script: "../assets/js/materialize.js" }
 ];
 
