@@ -7,7 +7,7 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", event => {
     event.preventDefault();
-    console.log(event);
+    console.log(event.currentTarget);
     // const taskId = $(this).data("id");
     // const taskId = $("#task-id").text();
     // const taskId2 = $(this);
