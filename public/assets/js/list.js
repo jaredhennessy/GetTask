@@ -9,9 +9,9 @@ $(document).ready(() => {
     event.preventDefault();
     console.log(event);
     // const taskId = $(this).data("id");
-    const taskId = $("#task-id").text();
+    // const taskId = $("#task-id").text();
     // const taskId2 = $(this);
-    $(location).attr("href", "/task/" + taskId);
+    // $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnNew").on("click", () => {
