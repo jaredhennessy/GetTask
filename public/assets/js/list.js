@@ -7,7 +7,8 @@ $(document).ready(() => {
 
   $("li").on("click", (event) => {
     event.preventDefault();
-    console.log(event)
+    console.log(event);
+    console.log(event.target);
     let taskId = $(this).data("id");
     $(location).attr("href", "/task/" + taskId);
   });
