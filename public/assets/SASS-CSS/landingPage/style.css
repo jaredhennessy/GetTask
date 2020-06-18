@@ -1,0 +1,65 @@
+/*Background settings */
+.section {
+  background-color: white;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 50px;
+}
+
+.parallax {
+  padding: 0px;
+  margin-bottom: 0px;
+  background: url(../../img/1067-2000x1000.jpg);
+  background-attachment: fixed;
+}
+
+.parallax-container {
+  height: 250px;
+}
+
+/* container properties  */
+.container {
+  width: 100%;
+  max-width: initial;
+}
+
+.container > .row {
+  margin: 0;
+}
+
+.container > .row > .col {
+  padding: 0;
+  padding-top: 50px;
+}
+
+.col,
+.s12 {
+  padding-top: 50px !important;
+  height: 100%;
+}
+
+/* Landing Div - NavBar */
+#landing-div {
+  background-image: url("../../img/0-5616x3744.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 700px;
+}
+
+/*Icons And font*/
+.fas {
+  font-size: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon-header {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

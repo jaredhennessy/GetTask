@@ -3,15 +3,11 @@ node_js: "12"
 branches:
   only:
     - master
+    - dev
 cache:
   directories:
     - node_modules
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
-# whitelist
-branches:
-  only:
-    - master
-    - dev
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS task_tracker;'
