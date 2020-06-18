@@ -6,9 +6,9 @@ $(document).ready(() => {
   });
 
   $("li").on("click", () => {
-    // const taskId = $(this).data("id");
+    let taskId = $(this).data("id");
     console.log($(this));
-    // $(location).attr("href", "/task/" + taskId);
+    $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnNew").on("click", () => {
