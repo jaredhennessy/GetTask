@@ -172,7 +172,11 @@ router.get("/task/:id", (req, res) => {
       id: task.id,
       taskTitle: task.title,
       taskDesc: task.description,
-      estCompletion: task.estCompletion
+      estCompletion: task.estCompletion,
+      assignee: task["assignee.firstName"] + " " + task["assignee.lastName"],
+      assigneeEmail: task["assignee.email"],
+      creator: task["creator.firstName"] + " " + task["creator.lastName"],
+      creatorEmail: task["creator.email"]
     });
   });
 });
