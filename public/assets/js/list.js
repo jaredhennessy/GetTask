@@ -5,9 +5,11 @@ $(document).ready(() => {
     $(".member-name").text(data.firstName);
   });
 
-  $("li").on("click", () => {
+  $("li").on("click", (event) => {
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target);
     let taskId = $(this).data("id");
-    console.log($(this));
     $(location).attr("href", "/task/" + taskId);
   });
 
