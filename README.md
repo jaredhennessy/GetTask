@@ -34,8 +34,7 @@ SO THAT we can stay efficient and organized when working on projects.
 ## Technologies Used  
 Built in Visual Studio using MVC paradigm with            
 HTML          
-CSS       
-SASS   
+CSS         
 Javascript
 jQuery          
 Node.js        
@@ -58,9 +57,9 @@ Shields.io
 Travis     
 
 ## How to Use  
-Navigate to https://calm-scrubland-27592.herokuapp.com/ and log in. If you are a first-time user, click the "sign up" button and create an account. Once you have logged in or signed up, you will be taken to a page that lists all current tasks that you and your team members have posted. Choose any task to see its details. If the task is not yet assigned to anyone, you can click "Assign to Me" to claim that task. You will also need to enter an estimated date of completion for your task. If you would like to create a new task, just select "New Task" from the list page. You will be prompted to enter a title and short description of your task. Automated emails are set up to let users know when a task they have posted has been assigned, updated, and/or completed. When you return to the list page, you will see your new task has been added to the list. If you would like to see a list of users and how many tasks have been posted or completed by them  or assigned to them, click "Users" on the list page. There you will find all of this information, plus each user will have a badge that shows how many tasks they have completed. When it is time to sign out, just click "Logout" in the nav bar. 
+Navigate to https://calm-scrubland-27592.herokuapp.com/ and log in. If you are a first-time user, click the "sign up" button and create an account. Once you have logged in or signed up, you will be taken to a page that lists all current tasks that you and your team members have posted. Click on any task to see its details. If the task is not yet assigned to anyone, you can click "Assign to Me" to claim that task. You will also need to enter an estimated date of completion for your task. If you would like to create a new task, just select "+" from the tasks page. You will be prompted to enter a title and short description of your task. Automated emails are set up to let users know when a task they have posted has been assigned, updated, and/or completed. When you return to the list page, you will see your new task has been added to the list. If you would like to see a list of users and how many tasks have been posted or completed by them or assigned to them, click "Users" on the list page. There you will find all of this information, plus each user will have a badge that shows how many tasks they have completed. When it is time to sign out, just click "Logout" in the nav bar. 
 
-![image]()
+![image](https://media.giphy.com/media/kgrEXP21525paGmONQ/giphy.gif)
 
 ## Link to Presentation
 [Presentation Slides](https://docs.google.com/presentation/d/1O5oq3THaB4RQvdi4qdv2OhZ-9jJtM3fQv-uiiyGZjHA/edit#slide=id.g81e58f5b76_0_9)

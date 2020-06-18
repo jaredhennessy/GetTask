@@ -22,9 +22,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    taskPoints: {
-      type: DataTypes.INTEGER,
-      default: 0
+    color: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   });
 

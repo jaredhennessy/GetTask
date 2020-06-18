@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h4>Welcome <span class="member-name"></span>,</h4>
+      <h4>Welcome, <span class="member-name"></span>!</h4>
     </div>
   </div>
 </div>
@@ -17,13 +17,14 @@
         <ul class="collection">
           {{#each users}}
           <li class="collection-item avatar">
-            <i class="material-icons circle"></i>
+            <i class="material-icons circle {{this.color}}"></i>
             <p>{{this.firstName}} {{this.lastName}}<br>
-              Created Tasks: {{this.TicketsCreated}} <br>
-              Completed Tasks: {{this.TicketsAssignedClosed}} <br>
+              <img src="{{this.badgeUrl}}" alt="Completed Tasks: >{{this.TicketsAssignedclosed}}"
+                title="Completed Tasks: >{{this.TicketsAssignedclosed}}" />
             </p>
             <p class="secondary-content">
-              Open Tasks: {{this.TicketsAssignedOpen}}
+              Open Tasks: {{this.TicketsAssignedOpen}}<br>
+              Created Tasks: {{this.TicketsCreated}}
             </p>
           </li>
           {{/each}}

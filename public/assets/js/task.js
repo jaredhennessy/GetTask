@@ -53,6 +53,7 @@ $(document).ready(() => {
         taskId
     };
     updateTask(updTask);
+    event.stopPropagation();
   });
 
   $("#btnAssign").on("click", () => {
@@ -71,6 +72,7 @@ $(document).ready(() => {
         taskId
     };
     updateTask(updTask);
+    event.stopPropagation();
   });
 
   $("#btnComplete").on("click", () => {
@@ -89,6 +91,7 @@ $(document).ready(() => {
         taskId
     };
     updateTask(updTask);
+    event.stopPropagation();
   });
 
   function updateTask(taskData) {
@@ -97,7 +100,11 @@ $(document).ready(() => {
       url: "/api/task",
       data: taskData
     }).then(() => {
-      window.location.replace("/list");
+      if (taskData.complete === true) {
+        window.location.replace("/list");
+      } else {
+        location.reload();
+      }
     });
   }
 });

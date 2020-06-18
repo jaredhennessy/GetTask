@@ -37,6 +37,7 @@ $(document).ready(() => {
       }).then(() => {
         window.location.replace("/list");
       });
+      event.stopImmediatePropagation();
     });
   });
 });
