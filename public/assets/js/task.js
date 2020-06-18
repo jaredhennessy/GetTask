@@ -23,7 +23,6 @@ $(document).ready(() => {
       // console.log(creatorFirstName);
       // console.log(creatorLastName);
       // console.log(creatorEmail);
-      $("formDate").datepicker("setDate", estCompletion);
     });
 
   $.get("/api/user_data").then(data => {
