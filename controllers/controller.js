@@ -35,7 +35,6 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/new", isAuthenticated, (req, res) => {
-  // if (req.user) {
   scripts.push({ script: "../assets/js/new.js" });
   res.render("new", {
     title: "New Task",
@@ -45,8 +44,6 @@ router.get("/new", isAuthenticated, (req, res) => {
     userText: "Users",
     scripts: scripts
   });
-  // }
-  // res.render("index");
 });
 
 router.post("/api/new", (req, res) => {
