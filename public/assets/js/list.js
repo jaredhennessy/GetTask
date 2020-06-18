@@ -9,7 +9,9 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", event => {
     event.preventDefault();
-    const taskId = event.currentTarget.children[1].children[1].children[0].firstChild.textContent;
+    const taskId =
+      event.currentTarget.children[1].children[1].children[0].firstChild
+        .textContent;
     $(location).attr("href", "/task/" + taskId);
   });
 
