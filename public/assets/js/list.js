@@ -8,8 +8,8 @@ $(document).ready(() => {
   $(".collection-item").on("click", event => {
     event.preventDefault();
 
-    // console.log(event.currentTarget.data);
-    console.log(event.currentTarget.data("id"));
+    console.log(event.currentTarget.data);
+    console.log(event.currentTarget);
 
     // const taskId = $(this).data("id");
     // const taskId = $("#task-id").text();
