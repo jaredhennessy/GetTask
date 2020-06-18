@@ -5,12 +5,13 @@ $(document).ready(() => {
     $(".member-name").text(data.firstName);
   });
 
-  $("li").on("click", (event) => {
+  $(".collection-item").on("click", event => {
     event.preventDefault();
     console.log(event);
-    console.log(event.target);
-    let taskId = $(this).data("id");
-    $(location).attr("href", "/task/" + taskId);
+    // const taskId = $(this).data("id");
+    // const taskId = $("#task-id").text();
+    // const taskId2 = $(this);
+    // $(location).attr("href", "/task/" + taskId);
   });
 
   $("#btnNew").on("click", () => {

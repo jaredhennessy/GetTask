@@ -30,7 +30,7 @@ $(document).ready(() => {
         description: taskDesc,
         creatorId: userId
       };
-
+      console.log(newTask);
       $.ajax("/api/new", {
         type: "POST",
         data: newTask

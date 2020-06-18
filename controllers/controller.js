@@ -6,7 +6,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 const scripts = [
   { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-  // { script: "https://code.jquery.com/jquery.js" },
   { script: "../assets/js/materialize.js" }
 ];
 
