@@ -85,7 +85,7 @@ router.get("/list", isAuthenticated, (req, res) => {
   });
 });
 
-router.get("/api/list/:id", (req, res) => {
+router.get("/api/list/:id", isAuthenticated, (req, res) => {
   db.Task.findOne({
     where: {
       id: req.params.id
@@ -108,7 +108,7 @@ router.get("/api/list/:id", (req, res) => {
   });
 });
 
-router.get("/api/list", (req, res) => {
+router.get("/api/list", isAuthenticated, (req, res) => {
   db.Task.findAll({
     where: {
       complete: false
@@ -217,12 +217,12 @@ router.get("/api/task/:id", (req, res) => {
   });
 });
 
+const strQuery =
+  "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));";
+
 router.get("/users", isAuthenticated, (req, res) => {
   db.sequelize
-    .query(
-      "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));",
-      { type: db.sequelize.QueryTypes.SELECT }
-    )
+    .query(strQuery, { type: db.sequelize.QueryTypes.SELECT })
     .then(users => {
       scripts.push({ script: "../assets/js/users.js" });
       res.render("users", {
@@ -237,12 +237,9 @@ router.get("/users", isAuthenticated, (req, res) => {
     });
 });
 
-router.get("/api/users", (req, res) => {
+router.get("/api/users", isAuthenticated, (req, res) => {
   db.sequelize
-    .query(
-      "SELECT `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1)) AS `Initials`, COUNT(DISTINCT `c`.`id`) AS `TicketsCreated`, COUNT(DISTINCT `a`.`id`) AS `TicketsAssignedTotal`, COUNT(DISTINCT CASE WHEN `a`.`complete` = true THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedClosed`, COUNT(DISTINCT CASE WHEN `a`.`complete` = false THEN `a`.`id` ELSE NULL END) AS `TicketsAssignedOpen` FROM `Users` AS `u` LEFT JOIN `Tasks` AS `a` ON `u`.`id` = `a`.`assigneeId` LEFT JOIN `Tasks` AS `c` ON `u`.`id` = `c`.`creatorId` GROUP BY `u`.`id`, `u`.`firstName`, `u`.`lastName`, `u`.`email`, CONCAT(LEFT(`u`.`firstName`,1), LEFT(`u`.`lastName`,1));",
-      { type: db.sequelize.QueryTypes.SELECT }
-    )
+    .query(strQuery, { type: db.sequelize.QueryTypes.SELECT })
     .then(dbTask => {
       res.json(dbTask);
     });
