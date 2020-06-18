@@ -19,11 +19,12 @@
           <li class="collection-item avatar">
             <i class="material-icons circle"></i>
             <p>{{this.firstName}} {{this.lastName}}<br>
-              Created Tasks: {{this.TicketsCreated}} <br>
-              Completed Tasks: {{this.TicketsAssignedClosed}} <br>
+              <img src="{{this.badgeUrl}}" alt="Completed Tasks: >{{this.TicketsAssignedclosed}}"
+                title="Completed Tasks: >{{this.TicketsAssignedclosed}}" />
             </p>
             <p class="secondary-content">
-              Open Tasks: {{this.TicketsAssignedOpen}}
+              Open Tasks: {{this.TicketsAssignedOpen}}<br>
+              Created Tasks: {{this.TicketsCreated}}
             </p>
           </li>
           {{/each}}
