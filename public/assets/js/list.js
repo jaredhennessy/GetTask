@@ -7,7 +7,7 @@ $(document).ready(() => {
     userId = data.id;
   });
 
-  $("#logo-container").on("click", event => {
+  $("#logo-container").on("click", () => {
     $(location).attr("href", "/");
   });
 
