@@ -9,10 +9,6 @@ $(document).ready(() => {
     event.preventDefault();
     const taskId = $(this).data("id");
     const taskId2 = $(this);
-    console.log(taskId2);
-    console.log(taskId);
-    console.log(event);
-    console.log(event.target);
     $(location).attr("href", "/task/" + taskId);
   });
 
