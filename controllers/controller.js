@@ -64,12 +64,13 @@ router.post("/api/new", (req, res) => {
 
 router.get("/list/:filter?", isAuthenticated, (req, res) => {
   let whereClause;
-  if ((req.params.filter = "none")) {
+  const filter = req.params.filter;
+  if (req.params.filter === "none") {
     whereClause = { complete: false, assigneeId: null };
-  } else if ((req.params.filter = "all" || !filter)) {
+  } else if (req.params.filter === "all" || !filter) {
     whereClause = { complete: false };
   } else {
-    whereClause = { complete: false, assigneeId: req.params.filter };
+    whereClause = { complete: false, assigneeId: filter };
   }
 
   db.Task.findAll({
@@ -126,12 +127,13 @@ router.get("/list/:filter?", isAuthenticated, (req, res) => {
 
 router.get("/api/list/:filter?", isAuthenticated, (req, res) => {
   let whereClause;
-  if ((req.params.filter = "none")) {
+  const filter = req.params.filter;
+  if (req.params.filter === "none") {
     whereClause = { complete: false, assigneeId: null };
-  } else if ((req.params.filter = "all" || !filter)) {
+  } else if (req.params.filter === "all" || !filter) {
     whereClause = { complete: false };
   } else {
-    whereClause = { complete: false, assigneeId: req.params.filter };
+    whereClause = { complete: false, assigneeId: filter };
   }
 
   db.Task.findAll({
