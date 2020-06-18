@@ -7,10 +7,11 @@ $(document).ready(() => {
 
   $(".collection-item").on("click", event => {
     event.preventDefault();
-
-    // console.log(event.currentTarget.data);
-    console.log(event.currentTarget.data("id"));
-
+    // console.log(event.currentTarget.children[1]);
+    // console.log(event.currentTarget.childNodes[3]);
+    console.log(event.currentTarget.children[1].firstChild.val);
+    console.log(event.currentTarget.childNodes[3].firstChild.value);
+    console.log(event);
     // const taskId = $(this).data("id");
     // const taskId = $("#task-id").text();
     // const taskId2 = $(this);
