@@ -15,7 +15,7 @@ $(document).ready(() => {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-    console.log(userData);
+    console.log("sign up");
 
     if (
       !userData.email ||
@@ -53,7 +53,7 @@ $(document).ready(() => {
   }
 
   function handleLoginErr(err) {
-    M.toast(err.responseJSON);
+    M.toast({ html: err.responseJSON, inDuration: 500 });
     // $("#alert .msg").text(err.responseJSON);
     // $("#alert").fadeIn(500);
   }
