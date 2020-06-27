@@ -1,13 +1,15 @@
-const express = require("express");
-const router = express.Router();
-const db = require("../models");
-const transporter = require("../config/nodemailer.js");
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const express = require("express"),
+  router = express.Router(),
+  db = require("../models"),
+  transporter = require("../config/nodemailer.js"),
+  isAuthenticated = require("../config/middleware/isAuthenticated"),
+  compression = require("compression"),
+  scripts = [
+    { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
+    { script: "../assets/js/materialize.js" }
+  ];
 
-const scripts = [
-  { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-  { script: "../assets/js/materialize.js" }
-];
+router.use(compression());
 
 router.get("/", (req, res) => {
   scripts.push({ script: "../assets/js/init.js" });
@@ -26,7 +28,7 @@ router.get("/signup", (req, res) => {
   scripts.push({ script: "../assets/js/signup.js" });
   res.render("signup", {
     title: "Sign Up",
-    loginoutLink: "/",
+    loginoutLink: "/logout",
     loginoutText: "Log In",
     listText: "",
     userText: "",
@@ -38,7 +40,7 @@ router.get("/new", isAuthenticated, (req, res) => {
   scripts.push({ script: "../assets/js/new.js" });
   res.render("new", {
     title: "New Task",
-    loginoutLink: "/",
+    loginoutLink: "/logout",
     loginoutText: "Logout",
     listText: "Tasks",
     userText: "Users",
@@ -96,7 +98,7 @@ router.get("/list/:filter?", isAuthenticated, (req, res) => {
     scripts.push({ script: "../assets/js/list.js" });
     res.render("list", {
       title: "Task List",
-      loginoutLink: "/",
+      loginoutLink: "/logout",
       loginoutText: "Logout",
       listText: "Tasks",
       userText: "Users",
@@ -164,7 +166,7 @@ router.get("/task/:id", (req, res) => {
     scripts.push({ script: "../assets/js/task.js" });
     res.render("task", {
       title: "Edit Task",
-      loginoutLink: "/",
+      loginoutLink: "/logout",
       loginoutText: "Logout",
       listText: "Tasks",
       userText: "Users",
@@ -243,7 +245,7 @@ router.get("/users", isAuthenticated, (req, res) => {
       scripts.push({ script: "../assets/js/users.js" });
       res.render("users", {
         title: "User List",
-        loginoutLink: "/",
+        loginoutLink: "/logout",
         loginoutText: "Logout",
         listText: "Tasks",
         userText: "Users",
