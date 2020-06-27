@@ -1,13 +1,15 @@
-const express = require("express");
-const router = express.Router();
-const db = require("../models");
-const transporter = require("../config/nodemailer.js");
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const express = require("express"),
+  router = express.Router(),
+  db = require("../models"),
+  transporter = require("../config/nodemailer.js"),
+  isAuthenticated = require("../config/middleware/isAuthenticated"),
+  compression = require("compression"),
+  scripts = [
+    { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
+    { script: "../assets/js/materialize.js" }
+  ];
 
-const scripts = [
-  { script: "https://code.jquery.com/jquery-2.1.1.min.js" },
-  { script: "../assets/js/materialize.js" }
-];
+router.use(compression());
 
 router.get("/", (req, res) => {
   scripts.push({ script: "../assets/js/init.js" });

@@ -10,11 +10,13 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
-const app = express();
-const path = require("path");
+const app = express(),
+  path = require("path"),
+  compression = require("compression");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(compression());
 
 // app.use(express.static(__dirname + "/public"));
 process.env.PWD = process.cwd();
